@@ -107,17 +107,10 @@ const Services = () => {
         offset: ["start end", "end start"]
     });
 
-    const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
-    const springY = useSpring(y, { stiffness: 100, damping: 30 });
-
-    // Critical fix: Ensure initial opacity is 1. Fades out between 30% and 70% of scroll.
-    const bgOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7], [1, 1, 0]);
+    // Calibrate background opacity (Initial 100%, fades out halfway through section)
+    const bgOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 1, 0]);
 
     useEffect(() => {
-        // Force a scroll refresh or check to ensure Framer Motion has the initial state
-        window.scrollTo(window.scrollX, window.scrollY + 1);
-        window.scrollTo(window.scrollX, window.scrollY - 1);
-
         // Subtle GSAP Parallax for the background decorations
         gsap.to(".bg-decoration", {
             scrollTrigger: {
@@ -154,11 +147,11 @@ const Services = () => {
                 <img
                     src={servicesBg}
                     alt="Background decoration"
-                    className="w-full h-full object-cover object-right-top brightness-[1.8] saturate-[1.4] contrast-[1.1] opacity-70"
+                    className="w-full h-full object-cover object-right-top brightness-[1.5] saturate-[1.2] opacity-60"
                 />
-                {/* Refined Ambient Glows - Moderated Intensity */}
-                <div className="absolute top-0 right-0 w-2/3 h-1/2 bg-highlight/20 rounded-full blur-[200px] mix-blend-screen pointer-events-none"></div>
-                <div className="absolute top-20 right-0 w-1/2 h-1/2 bg-accent/25 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
+                {/* Balanced Ambient Glows */}
+                <div className="absolute top-0 right-0 w-2/3 h-1/2 bg-highlight/15 rounded-full blur-[200px] mix-blend-screen pointer-events-none"></div>
+                <div className="absolute top-20 right-0 w-1/2 h-1/2 bg-accent/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
                 <div className="absolute top-40 right-40 w-1/3 h-1/3 bg-white/5 rounded-full blur-[100px] mix-blend-overlay pointer-events-none"></div>
 
                 {/* Balanced Gradient Fades */}
