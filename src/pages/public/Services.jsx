@@ -44,76 +44,55 @@ const ServiceCard = ({ service, index }) => {
             {/* Background Glow Effect */}
             <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-highlight rounded-2xl opacity-0 group-hover:opacity-20 transition duration-500 blur"></div>
 
-            <div className="relative h-full bg-darkCharcoal/40 backdrop-blur-xl border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-500 flex flex-col lg:flex-row">
-
-                {/* Text Content */}
-                <div className="p-8 flex flex-col flex-1">
-                    <div className="flex items-start justify-between mb-6">
-                        <div className="p-4 bg-accent/10 rounded-xl text-accent group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-500 shadow-[0_0_20px_rgba(0,112,243,0.1)]">
-                            {iconMap[service.name] || <Cpu className="w-8 h-8" />}
-                        </div>
-                        {service.estimated_time && (
-                            <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-softWhite/40 bg-white/5 px-3 py-1 rounded-full">
-                                <Clock className="w-3 h-3" />
-                                {service.estimated_time}
-                            </div>
-                        )}
+            <div className="relative h-full bg-darkCharcoal/40 backdrop-blur-xl border border-white/5 p-8 rounded-2xl hover:border-white/20 transition-all duration-500 flex flex-col">
+                <div className="flex items-start justify-between mb-6">
+                    <div className="p-4 bg-accent/10 rounded-xl text-accent group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-500 shadow-[0_0_20px_rgba(0,112,243,0.1)]">
+                        {iconMap[service.name] || <Cpu className="w-8 h-8" />}
                     </div>
-
-                    <h3 className="text-2xl font-bold mb-4 group-hover:text-highlight transition-colors tracking-tight">
-                        {service.name}
-                    </h3>
-
-                    <p className="text-softWhite/60 text-sm leading-relaxed mb-6">
-                        {service.description}
-                    </p>
-
-                    {service.detailed_includes && service.detailed_includes.length > 0 && (
-                        <div className="space-y-3 mb-8">
-                            <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-accent">¿Qué incluye?</p>
-                            <div className="grid grid-cols-1 gap-2">
-                                {service.detailed_includes.slice(0, 4).map((item, idx) => (
-                                    <div key={idx} className="flex items-center gap-2 text-xs text-softWhite/80">
-                                        <CheckCircle2 className="w-3 h-3 text-accent shrink-0" />
-                                        <span>{item}</span>
-                                    </div>
-                                ))}
-                            </div>
+                    {service.estimated_time && (
+                        <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-softWhite/40 bg-white/5 px-3 py-1 rounded-full">
+                            <Clock className="w-3 h-3" />
+                            {service.estimated_time}
                         </div>
                     )}
-
-                    <div className="pt-6 border-t border-white/5 mt-auto">
-                        {service.main_benefit && (
-                            <p className="text-sm font-semibold italic text-highlight mb-4">
-                                "{service.main_benefit}"
-                            </p>
-                        )}
-
-                        <button
-                            onClick={handleInquiry}
-                            className="flex items-center justify-center gap-2 w-full py-3 bg-white/5 border border-white/10 rounded-xl text-sm font-bold group-hover:bg-accent group-hover:text-white transition-all duration-300"
-                        >
-                            {service.cta_text || 'Solicitar Cotización'}
-                            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </button>
-                    </div>
                 </div>
 
-                {/* Optional Image Area - Rounded on the side */}
-                <div className="relative w-full lg:w-1/3 min-h-[200px] bg-white/5 group-hover:bg-white/10 transition-colors">
-                    {service.image_url ? (
-                        <img
-                            src={service.image_url}
-                            alt={service.name}
-                            className="w-full h-full object-cover rounded-t-2xl lg:rounded-t-none lg:rounded-l-[4rem] group-hover:scale-105 transition-transform duration-700"
-                        />
-                    ) : (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-softWhite/10">
-                            <ImageIcon className="w-12 h-12 mb-2" />
-                            <span className="text-[8px] uppercase tracking-widest font-bold">Espacio para Imagen</span>
+                <h3 className="text-2xl font-bold mb-4 group-hover:text-highlight transition-colors tracking-tight">
+                    {service.name}
+                </h3>
+
+                <p className="text-softWhite/60 text-sm leading-relaxed mb-6 flex-grow">
+                    {service.description}
+                </p>
+
+                {service.detailed_includes && service.detailed_includes.length > 0 && (
+                    <div className="space-y-3 mb-8">
+                        <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-accent">¿Qué incluye?</p>
+                        <div className="grid grid-cols-1 gap-2">
+                            {service.detailed_includes.slice(0, 4).map((item, idx) => (
+                                <div key={idx} className="flex items-center gap-2 text-xs text-softWhite/80">
+                                    <CheckCircle2 className="w-3 h-3 text-accent shrink-0" />
+                                    <span>{item}</span>
+                                </div>
+                            ))}
                         </div>
+                    </div>
+                )}
+
+                <div className="pt-6 border-t border-white/5 mt-auto">
+                    {service.main_benefit && (
+                        <p className="text-sm font-semibold italic text-highlight mb-4">
+                            "{service.main_benefit}"
+                        </p>
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-darkCharcoal/80 to-transparent lg:bg-gradient-to-r lg:from-darkCharcoal/80 lg:to-transparent"></div>
+
+                    <button
+                        onClick={handleInquiry}
+                        className="flex items-center justify-center gap-2 w-full py-3 bg-white/5 border border-white/10 rounded-xl text-sm font-bold group-hover:bg-accent group-hover:text-white transition-all duration-300"
+                    >
+                        {service.cta_text || 'Solicitar Cotización'}
+                        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </button>
                 </div>
             </div>
         </motion.div>
@@ -131,8 +110,8 @@ const Services = () => {
     const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
     const springY = useSpring(y, { stiffness: 100, damping: 30 });
 
-    // Transform scroll progress to background opacity (fades out at 40% scroll)
-    const bgOpacity = useTransform(scrollYProgress, [0, 0.4], [0.8, 0]);
+    // Transform scroll progress to background opacity (fades out at 100% of header scroll)
+    const bgOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
 
     useEffect(() => {
         // Subtle GSAP Parallax for the background decorations
@@ -162,20 +141,20 @@ const Services = () => {
     );
 
     return (
-        <div ref={containerRef} className="relative py-24 overflow-hidden">
-            {/* Fading Background Image */}
+        <div ref={containerRef} className="relative py-24 overflow-hidden bg-background">
+            {/* Fading Background Image - Positioned behind Header */}
             <motion.div
                 style={{ opacity: bgOpacity }}
-                className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
+                className="absolute top-0 right-0 w-full lg:w-3/4 h-[80vh] pointer-events-none z-0 overflow-hidden"
             >
                 <img
                     src={servicesBg}
                     alt="Background decoration"
-                    className="w-full h-full object-cover opacity-50"
+                    className="w-full h-full object-cover object-right-top"
                 />
-                {/* Gradient Fades */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/20 via-transparent to-[#050505]"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505]"></div>
+                {/* Smooth Gradient Fades to the original background */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background"></div>
             </motion.div>
 
             {/* Ambient Background Elements */}
@@ -183,26 +162,26 @@ const Services = () => {
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-highlight/10 rounded-full blur-[120px] -ml-64 -mb-64 pointer-events-none bg-decoration"></div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <header className="max-w-3xl mb-20 relative">
+                <header className="max-w-3xl mb-24 relative">
                     <motion.div
                         initial={{ opacity: 0, x: -100, filter: 'blur(20px)' }}
                         whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, ease: "circOut" }}
                     >
-                        <h2 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter uppercase">
+                        <h2 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter uppercase leading-[0.85]">
                             Nuestros <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-highlight to-accent bg-[length:200%_auto] animate-gradient">Servicios</span>
                         </h2>
-                        <div className="h-1 w-24 bg-accent mb-8"></div>
-                        <p className="text-xl text-softWhite/50 leading-relaxed font-medium max-w-2xl">
+                        <div className="h-1.5 w-32 bg-accent mb-10"></div>
+                        <p className="text-xl md:text-2xl text-softWhite/60 leading-relaxed font-medium max-w-2xl">
                             Ingeniería de software de alto nivel y agentes de IA diseñados para organizaciones
                             que no solo buscan digitalizarse, sino liderar la próxima revolución tecnológica.
                         </p>
                     </motion.div>
                 </header>
 
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {services.map((s, i) => (
                         <ServiceCard key={s.id || i} service={s} index={i} />
                     ))}
