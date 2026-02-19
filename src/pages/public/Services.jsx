@@ -104,14 +104,14 @@ const Services = () => {
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start end", "end start"]
+        offset: ["start start", "end start"]
     });
 
     const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
     const springY = useSpring(y, { stiffness: 100, damping: 30 });
 
-    // Transform scroll progress to background opacity (fades out at 100% of header scroll)
-    const bgOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
+    // Transform scroll progress to background opacity (fades out from 20% to 80% scroll)
+    const bgOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
     useEffect(() => {
         // Subtle GSAP Parallax for the background decorations
@@ -145,18 +145,19 @@ const Services = () => {
             {/* Fading Background Image - Positioned behind Header */}
             <motion.div
                 style={{ opacity: bgOpacity }}
-                className="absolute top-0 right-0 w-full lg:w-3/4 h-[80vh] pointer-events-none z-0 overflow-hidden"
+                className="absolute top-0 right-0 w-full lg:w-4/5 h-full pointer-events-none z-0 overflow-hidden"
             >
                 <img
                     src={servicesBg}
                     alt="Background decoration"
-                    className="w-full h-full object-cover object-right-top brightness-[1.6] saturate-[1.2] transition-all duration-1000"
+                    className="w-full h-auto object-cover object-right-top brightness-[2.2] saturate-[1.8] contrast-[1.1]"
                 />
-                {/* Accent Glow for extra illumination */}
-                <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-accent/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
+                {/* High Intensity Ambient Glow */}
+                <div className="absolute top-0 right-0 w-2/3 h-2/3 bg-highlight/30 rounded-full blur-[180px] mix-blend-screen pointer-events-none"></div>
+                <div className="absolute top-40 right-20 w-1/2 h-1/2 bg-accent/40 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
 
                 {/* Smooth Gradient Fades to the original background */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/90"></div>
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background"></div>
             </motion.div>
 
