@@ -150,10 +150,13 @@ const Services = () => {
                 <img
                     src={servicesBg}
                     alt="Background decoration"
-                    className="w-full h-full object-cover object-right-top"
+                    className="w-full h-full object-cover object-right-top brightness-[1.6] saturate-[1.2] transition-all duration-1000"
                 />
+                {/* Accent Glow for extra illumination */}
+                <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-accent/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
+
                 {/* Smooth Gradient Fades to the original background */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/40 to-background"></div>
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background"></div>
             </motion.div>
 
