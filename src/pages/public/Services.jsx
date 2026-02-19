@@ -154,16 +154,16 @@ const Services = () => {
                 <img
                     src={servicesBg}
                     alt="Background decoration"
-                    className="w-full h-full object-cover object-right-top brightness-[2.8] saturate-[2] contrast-[1.2]"
+                    className="w-full h-full object-cover object-right-top brightness-[1.8] saturate-[1.4] contrast-[1.1] opacity-70"
                 />
-                {/* Ultra Intensity Ambient Glows */}
-                <div className="absolute top-0 right-0 w-2/3 h-1/2 bg-highlight/40 rounded-full blur-[200px] mix-blend-screen pointer-events-none"></div>
-                <div className="absolute top-20 right-0 w-1/2 h-1/2 bg-accent/40 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
-                <div className="absolute top-40 right-40 w-1/3 h-1/3 bg-white/10 rounded-full blur-[100px] mix-blend-overlay pointer-events-none"></div>
+                {/* Refined Ambient Glows - Moderated Intensity */}
+                <div className="absolute top-0 right-0 w-2/3 h-1/2 bg-highlight/20 rounded-full blur-[200px] mix-blend-screen pointer-events-none"></div>
+                <div className="absolute top-20 right-0 w-1/2 h-1/2 bg-accent/25 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
+                <div className="absolute top-40 right-40 w-1/3 h-1/3 bg-white/5 rounded-full blur-[100px] mix-blend-overlay pointer-events-none"></div>
 
-                {/* Smooth Gradient Fades - Softened top to ensure immediate visibility */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/100"></div>
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/5 to-background"></div>
+                {/* Balanced Gradient Fades */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/100"></div>
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/10 to-background"></div>
             </motion.div>
 
             {/* Ambient Background Elements */}
