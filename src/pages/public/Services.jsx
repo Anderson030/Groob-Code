@@ -104,16 +104,20 @@ const Services = () => {
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start start", "end start"]
+        offset: ["start end", "end start"]
     });
 
     const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
     const springY = useSpring(y, { stiffness: 100, damping: 30 });
 
-    // Transform scroll progress to background opacity (fades out from 20% to 80% scroll)
-    const bgOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+    // Critical fix: Ensure initial opacity is 1. Fades out between 30% and 70% of scroll.
+    const bgOpacity = useTransform(scrollYProgress, [0, 0.3, 0.7], [1, 1, 0]);
 
     useEffect(() => {
+        // Force a scroll refresh or check to ensure Framer Motion has the initial state
+        window.scrollTo(window.scrollX, window.scrollY + 1);
+        window.scrollTo(window.scrollX, window.scrollY - 1);
+
         // Subtle GSAP Parallax for the background decorations
         gsap.to(".bg-decoration", {
             scrollTrigger: {
@@ -145,20 +149,21 @@ const Services = () => {
             {/* Fading Background Image - Positioned behind Header */}
             <motion.div
                 style={{ opacity: bgOpacity }}
-                className="absolute top-0 right-0 w-full lg:w-4/5 h-full pointer-events-none z-0 overflow-hidden"
+                className="absolute top-0 right-0 w-full lg:w-4/5 h-[100vh] pointer-events-none z-0 overflow-hidden"
             >
                 <img
                     src={servicesBg}
                     alt="Background decoration"
-                    className="w-full h-auto object-cover object-right-top brightness-[2.2] saturate-[1.8] contrast-[1.1]"
+                    className="w-full h-full object-cover object-right-top brightness-[2.8] saturate-[2] contrast-[1.2]"
                 />
-                {/* High Intensity Ambient Glow */}
-                <div className="absolute top-0 right-0 w-2/3 h-2/3 bg-highlight/30 rounded-full blur-[180px] mix-blend-screen pointer-events-none"></div>
-                <div className="absolute top-40 right-20 w-1/2 h-1/2 bg-accent/40 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
+                {/* Ultra Intensity Ambient Glows */}
+                <div className="absolute top-0 right-0 w-2/3 h-1/2 bg-highlight/40 rounded-full blur-[200px] mix-blend-screen pointer-events-none"></div>
+                <div className="absolute top-20 right-0 w-1/2 h-1/2 bg-accent/40 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
+                <div className="absolute top-40 right-40 w-1/3 h-1/3 bg-white/10 rounded-full blur-[100px] mix-blend-overlay pointer-events-none"></div>
 
-                {/* Smooth Gradient Fades to the original background */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/90"></div>
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent to-background"></div>
+                {/* Smooth Gradient Fades - Softened top to ensure immediate visibility */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/10 to-background/100"></div>
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/5 to-background"></div>
             </motion.div>
 
             {/* Ambient Background Elements */}
