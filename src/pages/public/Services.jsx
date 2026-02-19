@@ -111,36 +111,14 @@ const Services = () => {
     const bgOpacity = useTransform(scrollYProgress, [0, 0.4, 0.8], [1, 1, 0]);
 
     useEffect(() => {
-        // Subtle GSAP Parallax for the background decorations
-        gsap.to(".bg-decoration", {
-            scrollTrigger: {
-                trigger: containerRef.current,
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 1.5
-            },
-            y: (i, t) => i % 2 === 0 ? -150 : 150,
-            opacity: 0.2
-        });
+        // Background is now static for maximum stability
     }, [services]);
 
-    if (loading) return (
-        <div className="min-h-screen flex flex-col items-center justify-center">
-            <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                className="mb-4"
-            >
-                <Zap className="w-12 h-12 text-accent" />
-            </motion.div>
-            <p className="text-softWhite/40 uppercase tracking-[0.3em] text-[10px] font-bold">Sincronizando Ecosistema...</p>
-        </div>
-    );
-
     return (
-        <div ref={containerRef} className="relative py-24 overflow-hidden bg-background">
-            {/* Fading Background Image - Positioned behind Header */}
+        <div ref={containerRef} className="relative py-24 overflow-hidden bg-background min-h-screen">
+            {/* BACKGROUND LAYER - MOUNTED IMMEDIATELY */}
             <motion.div
+                initial={false}
                 style={{ opacity: bgOpacity }}
                 className="absolute top-0 right-0 w-full lg:w-4/5 h-[100vh] pointer-events-none z-0 overflow-hidden"
             >
@@ -149,58 +127,66 @@ const Services = () => {
                     alt="Background decoration"
                     className="w-full h-full object-cover object-right-top brightness-[1.5] saturate-[1.2] opacity-60"
                 />
-                {/* Balanced Ambient Glows */}
                 <div className="absolute top-0 right-0 w-2/3 h-1/2 bg-highlight/15 rounded-full blur-[200px] mix-blend-screen pointer-events-none"></div>
                 <div className="absolute top-20 right-0 w-1/2 h-1/2 bg-accent/20 rounded-full blur-[150px] mix-blend-screen pointer-events-none"></div>
                 <div className="absolute top-40 right-40 w-1/3 h-1/3 bg-white/5 rounded-full blur-[100px] mix-blend-overlay pointer-events-none"></div>
 
-                {/* Balanced Gradient Fades */}
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/20 to-background/100"></div>
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent via-background/10 to-background"></div>
             </motion.div>
 
-            {/* Ambient Background Elements */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none bg-decoration"></div>
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-highlight/10 rounded-full blur-[120px] -ml-64 -mb-64 pointer-events-none bg-decoration"></div>
+            {/* Ambient Background Elements - Static */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none"></div>
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-highlight/5 rounded-full blur-[120px] -ml-64 -mb-64 pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <header className="max-w-3xl mb-24 relative">
-                    <motion.div
-                        initial={{ opacity: 0, x: -100, filter: 'blur(20px)' }}
-                        whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, ease: "circOut" }}
-                    >
-                        <h2 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter uppercase leading-[0.85]">
-                            Nuestros <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-highlight to-accent bg-[length:200%_auto] animate-gradient">Servicios</span>
-                        </h2>
-                        <div className="h-1.5 w-32 bg-accent mb-10"></div>
-                        <p className="text-xl md:text-2xl text-softWhite/60 leading-relaxed font-medium max-w-2xl">
-                            Ingeniería de software de alto nivel y agentes de IA diseñados para organizaciones
-                            que no solo buscan digitalizarse, sino liderar la próxima revolución tecnológica.
-                        </p>
-                    </motion.div>
-                </header>
+                {loading ? (
+                    <div className="min-h-[60vh] flex flex-col items-center justify-center">
+                        <Zap className="w-12 h-12 text-accent" />
+                        <p className="text-softWhite/40 uppercase tracking-[0.3em] text-[10px] font-bold mt-4">Sincronizando Ecosistema...</p>
+                    </div>
+                ) : (
+                    <>
+                        <header className="max-w-3xl mb-24 relative">
+                            <motion.div
+                                initial={{ opacity: 0, y: 10, filter: 'blur(10px)' }}
+                                whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                            >
+                                <h2 className="text-5xl md:text-8xl font-black mb-8 tracking-tighter uppercase leading-[0.85]">
+                                    Nuestros <br />
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-highlight to-accent bg-[length:200%_auto] animate-gradient">Servicios</span>
+                                </h2>
+                                <div className="h-1.5 w-32 bg-accent mb-10"></div>
+                                <p className="text-xl md:text-2xl text-softWhite/60 leading-relaxed font-medium max-w-2xl">
+                                    Ingeniería de software de alto nivel y agentes de IA diseñados para organizaciones
+                                    que no solo buscan digitalizarse, sino liderar la próxima revolución tecnológica.
+                                </p>
+                            </motion.div>
+                        </header>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {services.map((s, i) => (
-                        <ServiceCard key={s.id || i} service={s} index={i} />
-                    ))}
-                </div>
-
-                {services.length === 0 && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        className="text-center py-32 border-2 border-dashed border-white/5 rounded-3xl"
-                    >
-                        <Layers className="w-16 h-16 mx-auto mb-6 text-softWhite/10" />
-                        <p className="text-softWhite/20 uppercase tracking-widest font-bold">Sin registros dinámicos encontrados</p>
-                    </motion.div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {services.map((s, i) => (
+                                <ServiceCard key={s.id || i} service={s} index={i} />
+                            ))}
+                        </div>
+                    </>
                 )}
             </div>
+
+            {services.length === 0 && (
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="text-center py-32 border-2 border-dashed border-white/5 rounded-3xl"
+                >
+                    <Layers className="w-16 h-16 mx-auto mb-6 text-softWhite/10" />
+                    <p className="text-softWhite/20 uppercase tracking-widest font-bold">Sin registros dinámicos encontrados</p>
+                </motion.div>
+            )}
         </div>
+        </div >
     );
 };
 
