@@ -29,7 +29,7 @@ const Navbar = () => {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-8 items-center">
-                    {['Servicios', 'Precios', 'Promociones', 'Contacto'].map((item) => (
+                    {['Nosotros', 'Servicios', 'Precios', 'Promociones', 'Contacto'].map((item) => (
                         <Link
                             key={item}
                             to={`/${item.toLowerCase()}`}
@@ -56,7 +56,7 @@ const Navbar = () => {
                     animate={{ opacity: 1, y: 0 }}
                     className="md:hidden bg-background/95 backdrop-blur-xl absolute top-full left-0 w-full border-b border-white/10 py-6 px-6 flex flex-col space-y-4"
                 >
-                    {['Servicios', 'Precios', 'Promociones', 'Contacto'].map((item) => (
+                    {['Nosotros', 'Servicios', 'Precios', 'Promociones', 'Contacto'].map((item) => (
                         <Link
                             key={item}
                             to={`/${item.toLowerCase()}`}

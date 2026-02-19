@@ -4,6 +4,7 @@ import PublicLayout from './components/layout/PublicLayout';
 import AdminLayout from './components/layout/AdminLayout';
 import Home from './pages/public/Home';
 import Services from './pages/public/Services';
+import About from './pages/public/About';
 import Pricing from './pages/public/Pricing';
 import Promotions from './pages/public/Promotions';
 import Contact from './pages/public/Contact';
@@ -24,6 +25,7 @@ function App() {
         {/* Public Routes */}
         <Route path="/" element={<PublicLayout />}>
           <Route index element={<Home />} />
+          <Route path="nosotros" element={<About />} />
           <Route path="servicios" element={<Services />} />
           <Route path="precios" element={<Pricing />} />
           <Route path="promociones" element={<Promotions />} />
