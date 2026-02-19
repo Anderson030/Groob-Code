@@ -8,43 +8,44 @@ const Logo = ({ className = "w-10 h-10" }) => {
             xmlns="http://www.w3.org/2000/svg"
             className={className}
         >
-            {/* Brackets (Green) */}
+            {/* Green Brackets */}
             <path
-                d="M25 35L15 50L25 65"
+                d="M28 35L18 50L28 65"
                 stroke="#22C55E"
-                strokeWidth="7"
+                strokeWidth="6"
                 strokeLinecap="round"
                 strokeLinejoin="round"
             />
             <path
-                d="M75 35L85 50L75 65"
+                d="M72 35L82 50L72 65"
                 stroke="#22C55E"
-                strokeWidth="7"
+                strokeWidth="6"
                 strokeLinecap="round"
                 strokeLinejoin="round"
             />
 
-            {/* Blue G / Power Symbol */}
-            {/* Outer Circle (mostly) */}
+            {/* Blue G / Power Symbol Circle */}
             <path
-                d="M50 35C41.7 35 35 41.7 35 50C35 58.3 41.7 65 50 65C58.3 65 65 58.3 65 50V48"
+                d="M50 32C40.0589 32 32 40.0589 32 50C32 59.9411 40.0589 68 50 68C59.9411 68 68 59.9411 68 50V48"
                 stroke="#0070F3"
-                strokeWidth="7"
+                strokeWidth="8"
                 strokeLinecap="round"
                 strokeLinejoin="round"
             />
-            {/* Power line */}
+
+            {/* Green Power Line */}
             <path
-                d="M50 20V35"
+                d="M50 22V36"
                 stroke="#22C55E"
                 strokeWidth="7"
                 strokeLinecap="round"
             />
-            {/* G Horizontal Bar */}
+
+            {/* Blue G Horizontal Bar */}
             <path
-                d="M55 50H65"
+                d="M56 50H66"
                 stroke="#0070F3"
-                strokeWidth="7"
+                strokeWidth="8"
                 strokeLinecap="round"
             />
         </svg>

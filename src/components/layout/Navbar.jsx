@@ -23,7 +23,7 @@ const Navbar = () => {
                     <Logo className="w-12 h-12 group-hover:scale-110 transition-transform" />
                     <div className="flex flex-col">
                         <span className="text-xl font-bold tracking-tighter text-white uppercase leading-none">Groob Code</span>
-                        <span className="text-[10px] tracking-[0.2em] font-medium text-accent uppercase leading-none mt-1 opacity-80">Technology</span>
+                        <span className="text-[10px] tracking-[0.2em] font-medium text-[#8F9BFF] uppercase leading-none mt-1 opacity-90">Technology</span>
                     </div>
                 </Link>
 
