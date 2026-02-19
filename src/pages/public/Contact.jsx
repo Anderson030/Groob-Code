@@ -13,10 +13,11 @@ const Contact = () => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
-        if (location.state?.selectedPlan) {
+        const selectedPlan = location.state?.plan;
+        if (selectedPlan) {
             setFormData(prev => ({
                 ...prev,
-                message: `Hola, estoy interesado en el plan ${location.state.selectedPlan}. Me gustaría recibir más información.`
+                message: `Hola, estoy interesado en el servicio de ${selectedPlan}. Me gustaría solicitar una consultoría para mi proyecto.`
             }));
         }
     }, [location.state]);

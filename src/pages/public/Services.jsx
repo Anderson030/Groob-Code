@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import {
     Cpu, Globe, Smartphone, BarChart, Shield, Cloud, Settings,
-    Monitor, Database, Layers, Lock, MessageSquare, ShoppingBag, Zap, ChevronRight, Clock, Target, CheckCircle2
+    Monitor, Database, Layers, Lock, MessageSquare, ShoppingBag, Zap, ChevronRight, Clock, Target, CheckCircle2, Image as ImageIcon
 } from 'lucide-react';
 import { useServices } from '../../hooks/useContent';
 import gsap from 'gsap';
@@ -21,6 +22,12 @@ const iconMap = {
 };
 
 const ServiceCard = ({ service, index }) => {
+    const navigate = useNavigate();
+
+    const handleInquiry = () => {
+        navigate('/contacto', { state: { plan: service.name } });
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 50, filter: 'blur(10px)' }}
@@ -36,52 +43,76 @@ const ServiceCard = ({ service, index }) => {
             {/* Background Glow Effect */}
             <div className="absolute -inset-0.5 bg-gradient-to-r from-accent to-highlight rounded-2xl opacity-0 group-hover:opacity-20 transition duration-500 blur"></div>
 
-            <div className="relative h-full bg-darkCharcoal/40 backdrop-blur-xl border border-white/5 p-8 rounded-2xl hover:border-white/20 transition-all duration-500 flex flex-col">
-                <div className="flex items-start justify-between mb-6">
-                    <div className="p-4 bg-accent/10 rounded-xl text-accent group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-500 shadow-[0_0_20px_rgba(0,112,243,0.1)]">
-                        {iconMap[service.name] || <Cpu className="w-8 h-8" />}
+            <div className="relative h-full bg-darkCharcoal/40 backdrop-blur-xl border border-white/5 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-500 flex flex-col lg:flex-row">
+
+                {/* Text Content */}
+                <div className="p-8 flex flex-col flex-1">
+                    <div className="flex items-start justify-between mb-6">
+                        <div className="p-4 bg-accent/10 rounded-xl text-accent group-hover:scale-110 group-hover:bg-accent/20 transition-all duration-500 shadow-[0_0_20px_rgba(0,112,243,0.1)]">
+                            {iconMap[service.name] || <Cpu className="w-8 h-8" />}
+                        </div>
+                        {service.estimated_time && (
+                            <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-softWhite/40 bg-white/5 px-3 py-1 rounded-full">
+                                <Clock className="w-3 h-3" />
+                                {service.estimated_time}
+                            </div>
+                        )}
                     </div>
-                    {service.estimated_time && (
-                        <div className="flex items-center gap-2 text-[10px] uppercase tracking-widest text-softWhite/40 bg-white/5 px-3 py-1 rounded-full">
-                            <Clock className="w-3 h-3" />
-                            {service.estimated_time}
+
+                    <h3 className="text-2xl font-bold mb-4 group-hover:text-highlight transition-colors tracking-tight">
+                        {service.name}
+                    </h3>
+
+                    <p className="text-softWhite/60 text-sm leading-relaxed mb-6">
+                        {service.description}
+                    </p>
+
+                    {service.detailed_includes && service.detailed_includes.length > 0 && (
+                        <div className="space-y-3 mb-8">
+                            <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-accent">¿Qué incluye?</p>
+                            <div className="grid grid-cols-1 gap-2">
+                                {service.detailed_includes.slice(0, 4).map((item, idx) => (
+                                    <div key={idx} className="flex items-center gap-2 text-xs text-softWhite/80">
+                                        <CheckCircle2 className="w-3 h-3 text-accent shrink-0" />
+                                        <span>{item}</span>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     )}
+
+                    <div className="pt-6 border-t border-white/5 mt-auto">
+                        {service.main_benefit && (
+                            <p className="text-sm font-semibold italic text-highlight mb-4">
+                                "{service.main_benefit}"
+                            </p>
+                        )}
+
+                        <button
+                            onClick={handleInquiry}
+                            className="flex items-center justify-center gap-2 w-full py-3 bg-white/5 border border-white/10 rounded-xl text-sm font-bold group-hover:bg-accent group-hover:text-white transition-all duration-300"
+                        >
+                            {service.cta_text || 'Solicitar Cotización'}
+                            <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </button>
+                    </div>
                 </div>
 
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-highlight transition-colors tracking-tight">
-                    {service.name}
-                </h3>
-
-                <p className="text-softWhite/60 text-sm leading-relaxed mb-6 flex-grow">
-                    {service.description}
-                </p>
-
-                {service.detailed_includes && service.detailed_includes.length > 0 && (
-                    <div className="space-y-3 mb-8">
-                        <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-accent">¿Qué incluye?</p>
-                        <div className="grid grid-cols-1 gap-2">
-                            {service.detailed_includes.map((item, idx) => (
-                                <div key={idx} className="flex items-center gap-2 text-xs text-softWhite/80">
-                                    <CheckCircle2 className="w-3 h-3 text-accent shrink-0" />
-                                    <span>{item}</span>
-                                </div>
-                            ))}
+                {/* Optional Image Area - Rounded on the side */}
+                <div className="relative w-full lg:w-1/3 min-h-[200px] bg-white/5 group-hover:bg-white/10 transition-colors">
+                    {service.image_url ? (
+                        <img
+                            src={service.image_url}
+                            alt={service.name}
+                            className="w-full h-full object-cover rounded-t-2xl lg:rounded-t-none lg:rounded-l-[4rem] group-hover:scale-105 transition-transform duration-700"
+                        />
+                    ) : (
+                        <div className="absolute inset-0 flex flex-col items-center justify-center text-softWhite/10">
+                            <ImageIcon className="w-12 h-12 mb-2" />
+                            <span className="text-[8px] uppercase tracking-widest font-bold">Espacio para Imagen</span>
                         </div>
-                    </div>
-                )}
-
-                <div className="pt-6 border-t border-white/5 mt-auto">
-                    {service.main_benefit && (
-                        <p className="text-sm font-semibold italic text-highlight mb-4">
-                            "{service.main_benefit}"
-                        </p>
                     )}
-
-                    <button className="flex items-center justify-center gap-2 w-full py-3 bg-white/5 border border-white/10 rounded-xl text-sm font-bold group-hover:bg-accent group-hover:text-white transition-all duration-300">
-                        {service.cta_text || 'Solicitar Cotización'}
-                        <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    <div className="absolute inset-0 bg-gradient-to-t from-darkCharcoal/80 to-transparent lg:bg-gradient-to-r lg:from-darkCharcoal/80 lg:to-transparent"></div>
                 </div>
             </div>
         </motion.div>
@@ -152,7 +183,7 @@ const Services = () => {
                     </motion.div>
                 </header>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
                     {services.map((s, i) => (
                         <ServiceCard key={s.id || i} service={s} index={i} />
                     ))}
