@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply bg-background text-softWhite antialiased font-sans;
+        background-color: #050505;
+        color: #f0f0f0;
+    }
+}
+
+/* Base Utility Classes */
+.neon-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight font-bold;
+}
