@@ -142,6 +142,7 @@ const Services = () => {
             <div className="container mx-auto px-6 relative z-10">
                 {loading ? (
                     <div className="min-h-[60vh] flex flex-col items-center justify-center">
+                        {/* Removed rotation to fix perceived 'giro' during load transition */}
                         <Zap className="w-12 h-12 text-accent" />
                         <p className="text-softWhite/40 uppercase tracking-[0.3em] text-[10px] font-bold mt-4">Sincronizando Ecosistema...</p>
                     </div>
@@ -171,22 +172,21 @@ const Services = () => {
                                 <ServiceCard key={s.id || i} service={s} index={i} />
                             ))}
                         </div>
+
+                        {services.length === 0 && (
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                className="text-center py-32 border-2 border-dashed border-white/5 rounded-3xl"
+                            >
+                                <Layers className="w-16 h-16 mx-auto mb-6 text-softWhite/10" />
+                                <p className="text-softWhite/20 uppercase tracking-widest font-bold">Sin registros dinámicos encontrados</p>
+                            </motion.div>
+                        )}
                     </>
                 )}
             </div>
-
-            {services.length === 0 && (
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    className="text-center py-32 border-2 border-dashed border-white/5 rounded-3xl"
-                >
-                    <Layers className="w-16 h-16 mx-auto mb-6 text-softWhite/10" />
-                    <p className="text-softWhite/20 uppercase tracking-widest font-bold">Sin registros dinámicos encontrados</p>
-                </motion.div>
-            )}
         </div>
-        </div >
     );
 };
 
