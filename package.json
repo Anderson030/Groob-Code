@@ -1,11 +1,12 @@
 {
-  "name": "futuristic-dev-agency",
+  "name": "groob-code",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --open",
     "build": "vite build",
+    "start": "vite preview --host --port ${PORT:-4173}",
     "lint": "eslint .",
     "preview": "vite preview"
   },
