@@ -6,6 +6,7 @@ import {
     Monitor, Database, Layers, Lock, MessageSquare, ShoppingBag, Zap, ChevronRight, Clock, Target, CheckCircle2, Image as ImageIcon
 } from 'lucide-react';
 import { useServices } from '../../hooks/useContent';
+import servicesBg from '../../assets/services-bg.png';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -130,6 +131,9 @@ const Services = () => {
     const y = useTransform(scrollYProgress, [0, 1], [0, -100]);
     const springY = useSpring(y, { stiffness: 100, damping: 30 });
 
+    // Transform scroll progress to background opacity (fades out at 40% scroll)
+    const bgOpacity = useTransform(scrollYProgress, [0, 0.4], [0.8, 0]);
+
     useEffect(() => {
         // Subtle GSAP Parallax for the background decorations
         gsap.to(".bg-decoration", {
@@ -159,6 +163,21 @@ const Services = () => {
 
     return (
         <div ref={containerRef} className="relative py-24 overflow-hidden">
+            {/* Fading Background Image */}
+            <motion.div
+                style={{ opacity: bgOpacity }}
+                className="absolute inset-0 pointer-events-none z-0 overflow-hidden"
+            >
+                <img
+                    src={servicesBg}
+                    alt="Background decoration"
+                    className="w-full h-full object-cover opacity-50"
+                />
+                {/* Gradient Fades */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/20 via-transparent to-[#050505]"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-transparent to-[#050505]"></div>
+            </motion.div>
+
             {/* Ambient Background Elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[120px] -mr-64 -mt-64 pointer-events-none bg-decoration"></div>
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-highlight/10 rounded-full blur-[120px] -ml-64 -mb-64 pointer-events-none bg-decoration"></div>
