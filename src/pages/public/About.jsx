@@ -1,6 +1,7 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Target, Rocket, Diamond, Shield, Zap, Globe, Cpu, ChevronRight } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Target, Rocket, Diamond, Shield, Zap, Globe, Cpu, ChevronRight, ChevronLeft, LayoutTemplate, Building2, Code2, Bot, MessageSquare, ShoppingCart, Plug } from 'lucide-react';
+import Logo from '../../components/ui/Logo';
 
 const About = () => {
     const values = [
@@ -10,6 +11,103 @@ const About = () => {
         { icon: <Target className="w-6 h-6" />, title: 'Pensamiento estratégico', desc: 'Cada línea de código tiene un propósito de negocio.' },
         { icon: <Diamond className="w-6 h-6" />, title: 'Mentalidad de crecimiento', desc: 'Escalamos junto a nuestros clientes.' },
     ];
+
+    const services = [
+        {
+            icon: <LayoutTemplate className="w-10 h-10" />,
+            tag: '01',
+            title: 'Landing Pages de Alto Rendimiento',
+            subtitle: 'Convierte visitantes en clientes 24/7.',
+            desc: 'Optimización, velocidad y copy persuasivo diseñados para maximizar conversiones desde el primer clic.',
+            color: 'from-accent to-cyan-400',
+            glow: 'accent',
+        },
+        {
+            icon: <Building2 className="w-10 h-10" />,
+            tag: '02',
+            title: 'Sitios Web Corporativos',
+            subtitle: 'Presencia digital sólida y profesional.',
+            desc: 'Escalables, administrables y optimizados para SEO — tu empresa en el primer lugar del buscador.',
+            color: 'from-highlight to-blue-400',
+            glow: 'highlight',
+        },
+        {
+            icon: <Code2 className="w-10 h-10" />,
+            tag: '03',
+            title: 'Sistemas Web a la Medida',
+            subtitle: 'Automatiza procesos y reduce errores.',
+            desc: 'Software personalizado con seguridad avanzada, construido exactamente para tu modelo de negocio.',
+            color: 'from-purple-500 to-accent',
+            glow: 'purple-500',
+        },
+        {
+            icon: <Bot className="w-10 h-10" />,
+            tag: '04',
+            title: 'Automatizaciones con IA',
+            subtitle: 'Agentes inteligentes que trabajan por ti.',
+            desc: 'Clasifican, analizan y optimizan en automático — libera a tu equipo de tareas repetitivas.',
+            color: 'from-emerald-400 to-cyan-500',
+            glow: 'emerald-400',
+        },
+        {
+            icon: <MessageSquare className="w-10 h-10" />,
+            tag: '05',
+            title: 'Chatbots Inteligentes',
+            subtitle: 'Atención inmediata y ventas constantes.',
+            desc: 'WhatsApp, web y redes sociales integradas — tu negocio activo las 24 horas sin intervención humana.',
+            color: 'from-pink-500 to-accent',
+            glow: 'pink-500',
+        },
+        {
+            icon: <ShoppingCart className="w-10 h-10" />,
+            tag: '06',
+            title: 'Tiendas Online (E-commerce)',
+            subtitle: 'Vende sin límites geográficos.',
+            desc: 'Pagos integrados, inventario y envíos automatizados — tu tienda lista para vender en cualquier lugar del mundo.',
+            color: 'from-orange-400 to-pink-500',
+            glow: 'orange-400',
+        },
+        {
+            icon: <Plug className="w-10 h-10" />,
+            tag: '07',
+            title: 'Integraciones y Automatización Empresarial',
+            subtitle: 'Conecta tus herramientas y elimina tareas manuales.',
+            desc: 'Todo sincronizado en tiempo real — CRMs, ERPs, APIs y plataformas trabajando como un solo sistema.',
+            color: 'from-highlight to-emerald-400',
+            glow: 'highlight',
+        },
+    ];
+
+    const [current, setCurrent] = useState(0);
+    const [direction, setDirection] = useState(1);
+    const [paused, setPaused] = useState(false);
+
+    const goTo = useCallback((index, dir = 1) => {
+        setDirection(dir);
+        setCurrent(index);
+    }, []);
+
+    const next = useCallback(() => {
+        const nextIdx = (current + 1) % services.length;
+        goTo(nextIdx, 1);
+    }, [current, services.length, goTo]);
+
+    const prev = useCallback(() => {
+        const prevIdx = (current - 1 + services.length) % services.length;
+        goTo(prevIdx, -1);
+    }, [current, services.length, goTo]);
+
+    useEffect(() => {
+        if (paused) return;
+        const timer = setInterval(next, 4000);
+        return () => clearInterval(timer);
+    }, [paused, next]);
+
+    const slideVariants = {
+        enter: (dir) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
+        center: { x: 0, opacity: 1, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+        exit: (dir) => ({ x: dir > 0 ? '-100%' : '100%', opacity: 0, transition: { duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] } }),
+    };
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -83,7 +181,7 @@ const About = () => {
                             <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-highlight/20 rounded-full blur-[100px] animate-pulse" />
                             <div className="relative z-10 w-full h-full flex items-center justify-center p-12 border border-white/5 bg-darkCharcoal/40 backdrop-blur-3xl rounded-[40px] shadow-2xl">
                                 <div className="text-center">
-                                    <Cpu className="w-24 h-24 text-accent mx-auto mb-6" />
+                                    <Logo className="w-24 h-24 mx-auto mb-6" />
                                     <div className="text-4xl font-black uppercase text-white tracking-widest leading-none">Groob<br />Code</div>
                                 </div>
                             </div>
@@ -169,6 +267,115 @@ const About = () => {
                             </motion.div>
                         ))}
                     </motion.div>
+                </div>
+            </section>
+
+            {/* SERVICIOS CAROUSEL */}
+            <section className="py-32 px-6 bg-white/[0.02] border-t border-white/5 overflow-hidden">
+                <div className="container mx-auto">
+                    <div className="text-center mb-16">
+                        <motion.span
+                            initial={{ opacity: 0, y: 10 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block"
+                        >
+                            Lo que hacemos
+                        </motion.span>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-4xl md:text-7xl font-black mb-6 uppercase tracking-tight italic"
+                        >
+                            Nuestros <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight">Servicios</span>
+                        </motion.h2>
+                        <div className="h-1.5 w-32 bg-accent mx-auto" />
+                    </div>
+
+                    <div
+                        className="relative max-w-4xl mx-auto"
+                        onMouseEnter={() => setPaused(true)}
+                        onMouseLeave={() => setPaused(false)}
+                    >
+                        {/* Slide area */}
+                        <div className="relative overflow-hidden rounded-[40px] min-h-[360px] bg-darkCharcoal/60 border border-white/10 shadow-2xl">
+                            <AnimatePresence mode="wait" custom={direction}>
+                                <motion.div
+                                    key={current}
+                                    custom={direction}
+                                    variants={slideVariants}
+                                    initial="enter"
+                                    animate="center"
+                                    exit="exit"
+                                    className="absolute inset-0 flex flex-col md:flex-row items-center gap-8 md:gap-16 p-10 md:p-16"
+                                >
+                                    {/* Glow bg */}
+                                    <div className={`absolute -top-20 -right-20 w-80 h-80 bg-gradient-to-br ${services[current].color} opacity-10 rounded-full blur-[100px] pointer-events-none`} />
+
+                                    {/* Icon block */}
+                                    <div className="flex-shrink-0">
+                                        <div className={`p-6 rounded-3xl bg-gradient-to-br ${services[current].color} bg-opacity-10 border border-white/10 text-white shadow-xl`}>
+                                            {services[current].icon}
+                                        </div>
+                                    </div>
+
+                                    {/* Text block */}
+                                    <div className="flex-1 text-center md:text-left">
+                                        <span className={`text-xs font-black tracking-[0.4em] uppercase bg-gradient-to-r ${services[current].color} bg-clip-text text-transparent`}>
+                                            Servicio {services[current].tag}
+                                        </span>
+                                        <h3 className="text-2xl md:text-4xl font-black uppercase tracking-tighter mt-2 mb-3 leading-tight">
+                                            {services[current].title}
+                                        </h3>
+                                        <p className={`text-sm font-bold uppercase tracking-widest mb-4 bg-gradient-to-r ${services[current].color} bg-clip-text text-transparent`}>
+                                            {services[current].subtitle}
+                                        </p>
+                                        <p className="text-softWhite/60 text-base leading-relaxed">
+                                            {services[current].desc}
+                                        </p>
+                                    </div>
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Controls */}
+                        <div className="flex items-center justify-between mt-8 px-2">
+                            {/* Prev */}
+                            <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={prev}
+                                className="w-12 h-12 rounded-full border border-white/10 bg-white/5 hover:bg-accent/20 hover:border-accent/50 flex items-center justify-center transition-all"
+                            >
+                                <ChevronLeft className="w-5 h-5" />
+                            </motion.button>
+
+                            {/* Dots */}
+                            <div className="flex items-center gap-2">
+                                {services.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => goTo(i, i > current ? 1 : -1)}
+                                        className={`transition-all duration-300 rounded-full ${i === current
+                                                ? 'w-8 h-2 bg-accent'
+                                                : 'w-2 h-2 bg-white/20 hover:bg-white/50'
+                                            }`}
+                                    />
+                                ))}
+                            </div>
+
+                            {/* Next */}
+                            <motion.button
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.95 }}
+                                onClick={next}
+                                className="w-12 h-12 rounded-full border border-white/10 bg-white/5 hover:bg-accent/20 hover:border-accent/50 flex items-center justify-center transition-all"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </motion.button>
+                        </div>
+                    </div>
                 </div>
             </section>
 
