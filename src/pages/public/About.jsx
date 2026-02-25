@@ -9,12 +9,63 @@ import {
 import Logo from '../../components/ui/Logo';
 
 /* ─── DATA ─────────────────────────────────────────── */
-const values = [
-    { icon: <Zap className="w-6 h-6" />, title: 'Innovación constante', desc: 'Evolucionamos con la tecnología para ofrecer siempre lo último.' },
-    { icon: <Shield className="w-6 h-6" />, title: 'Compromiso con la calidad', desc: 'No entregamos proyectos, entregamos excelencia técnica.' },
-    { icon: <Globe className="w-6 h-6" />, title: 'Transparencia total', desc: 'Comunicación clara y honesta en cada fase del proceso.' },
-    { icon: <Target className="w-6 h-6" />, title: 'Pensamiento estratégico', desc: 'Cada línea de código tiene un propósito de negocio.' },
-    { icon: <Diamond className="w-6 h-6" />, title: 'Mentalidad de crecimiento', desc: 'Escalamos junto a nuestros clientes.' },
+const serviceCards = [
+    {
+        icon: <LayoutTemplate className="w-8 h-8" />,
+        title: 'Landing Pages de Alto Rendimiento',
+        front: 'Convierte visitantes en clientes 24/7.',
+        back: 'Optimización, velocidad y copy persuasivo.',
+        warm1: '#ff6b35',
+        warm2: '#f7931e',
+    },
+    {
+        icon: <Building2 className="w-8 h-8" />,
+        title: 'Sitios Web Corporativos',
+        front: 'Presencia digital sólida y profesional.',
+        back: 'Escalables, administrables y optimizados para SEO.',
+        warm1: '#ff4d6d',
+        warm2: '#ff9a3c',
+    },
+    {
+        icon: <Code2 className="w-8 h-8" />,
+        title: 'Sistemas Web a la Medida',
+        front: 'Automatiza procesos y reduce errores.',
+        back: 'Software personalizado con seguridad avanzada.',
+        warm1: '#ff6b6b',
+        warm2: '#ffd93d',
+    },
+    {
+        icon: <Bot className="w-8 h-8" />,
+        title: 'Automatizaciones con IA',
+        front: 'Agentes inteligentes que trabajan por ti.',
+        back: 'Clasifican, analizan y optimizan en automático.',
+        warm1: '#ff9a3c',
+        warm2: '#ff6b35',
+    },
+    {
+        icon: <MessageSquare className="w-8 h-8" />,
+        title: 'Chatbots Inteligentes',
+        front: 'Atención inmediata y ventas constantes.',
+        back: 'WhatsApp, web y redes sociales integradas.',
+        warm1: '#ff4d6d',
+        warm2: '#ff6b6b',
+    },
+    {
+        icon: <ShoppingCart className="w-8 h-8" />,
+        title: 'Tiendas Online (E-commerce)',
+        front: 'Vende sin límites geográficos.',
+        back: 'Pagos integrados, inventario y envíos automatizados.',
+        warm1: '#ffd93d',
+        warm2: '#ff9a3c',
+    },
+    {
+        icon: <Plug className="w-8 h-8" />,
+        title: 'Integraciones y Automatización Empresarial',
+        front: 'Conecta tus herramientas y elimina tareas manuales.',
+        back: 'Todo sincronizado en tiempo real.',
+        warm1: '#ff6b35',
+        warm2: '#ff4d6d',
+    },
 ];
 
 const slides = [
@@ -138,6 +189,118 @@ const fadeUp = {
     visible: (i = 0) => ({ y: 0, opacity: 1, transition: { delay: i * 0.12, duration: 0.7, ease: 'easeOut' } }),
 };
 
+/* ─── FLIP CARD COMPONENT ───────────────────────────── */
+const FlipCard = ({ card, index }) => {
+    const [flipped, setFlipped] = useState(false);
+    const [glowPhase, setGlowPhase] = useState(index % 3);
+
+    // Cycle through warm neon color pairs slowly
+    const warmPalette = [
+        ['#ff6b35', '#f7931e'],
+        ['#ff4d6d', '#ff9a3c'],
+        ['#ff6b6b', '#ffd93d'],
+        ['#ff9a3c', '#ff6b35'],
+        ['#ffd93d', '#ff4d6d'],
+    ];
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setGlowPhase(prev => (prev + 1) % warmPalette.length);
+        }, 2800 + index * 400);
+        return () => clearInterval(interval);
+    }, [index]);
+
+    const [c1, c2] = warmPalette[glowPhase];
+
+    return (
+        <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.08, duration: 0.6 }}
+            className="relative cursor-pointer"
+            style={{ perspective: '1200px', height: '220px' }}
+            onClick={() => setFlipped(f => !f)}
+        >
+            <motion.div
+                animate={{ rotateY: flipped ? 180 : 0 }}
+                transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
+                style={{ transformStyle: 'preserve-3d', width: '100%', height: '100%', position: 'relative' }}
+            >
+                {/* FRONT */}
+                <div
+                    className="absolute inset-0 rounded-3xl p-6 flex flex-col justify-between"
+                    style={{
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
+                        background: `linear-gradient(135deg, #0e0e0e 0%, #1a1a1a 100%)`,
+                        border: `1px solid ${c1}40`,
+                        boxShadow: `0 0 18px ${c1}25, inset 0 0 30px ${c1}08`,
+                        transition: 'border-color 1.8s ease, box-shadow 1.8s ease',
+                    }}
+                >
+                    {/* Glow blob */}
+                    <div
+                        className="absolute -top-4 -right-4 w-28 h-28 rounded-full blur-[50px] pointer-events-none"
+                        style={{ background: c1, opacity: 0.18, transition: 'background 1.8s ease' }}
+                    />
+                    <div
+                        className="p-3 rounded-2xl inline-flex"
+                        style={{ background: `${c1}20`, color: c1, transition: 'background 1.8s ease, color 1.8s ease' }}
+                    >
+                        {card.icon}
+                    </div>
+                    <div>
+                        <h3 className="font-black uppercase tracking-tight text-sm text-white leading-tight mb-2">
+                            {card.title}
+                        </h3>
+                        <p className="text-xs font-medium" style={{ color: c1, transition: 'color 1.8s ease' }}>
+                            {card.front}
+                        </p>
+                    </div>
+                    {/* Flip hint */}
+                    <div
+                        className="absolute bottom-4 right-5 text-[10px] font-bold uppercase tracking-widest opacity-40"
+                        style={{ color: c1 }}
+                    >
+                        ✦ ver más
+                    </div>
+                </div>
+
+                {/* BACK */}
+                <div
+                    className="absolute inset-0 rounded-3xl p-6 flex flex-col items-center justify-center text-center"
+                    style={{
+                        backfaceVisibility: 'hidden',
+                        WebkitBackfaceVisibility: 'hidden',
+                        transform: 'rotateY(180deg)',
+                        background: `linear-gradient(135deg, ${c1}22 0%, ${c2}18 100%)`,
+                        border: `1px solid ${c2}60`,
+                        boxShadow: `0 0 30px ${c2}35, inset 0 0 40px ${c1}12`,
+                        transition: 'background 1.8s ease, border-color 1.8s ease, box-shadow 1.8s ease',
+                    }}
+                >
+                    <div
+                        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4"
+                        style={{ background: `${c2}25`, color: c2, transition: 'background 1.8s ease, color 1.8s ease' }}
+                    >
+                        {card.icon}
+                    </div>
+                    <p className="text-sm font-semibold text-white/90 leading-relaxed">
+                        {card.back}
+                    </p>
+                    <div
+                        className="mt-4 text-[10px] font-bold uppercase tracking-widest opacity-50"
+                        style={{ color: c2 }}
+                    >
+                        ✦ volver
+                    </div>
+                </div>
+            </motion.div>
+        </motion.div>
+    );
+};
+
 /* ─── COMPONENT ─────────────────────────────────────── */
 const About = () => {
     const [current, setCurrent] = useState(0);
@@ -225,38 +388,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* ─── PROPÓSITO & VISIÓN ─────────────────── */}
-            <section className="py-24 px-6 bg-white/[0.02] border-y border-white/5">
-                <div className="container mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <motion.div whileHover={{ y: -10 }} className="p-12 bg-darkCharcoal/60 rounded-[40px] border border-white/5 relative overflow-hidden group">
-                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/10 rounded-full blur-[60px] group-hover:bg-accent/20 transition-all" />
-                            <Target className="w-12 h-12 text-accent mb-8" />
-                            <h3 className="text-3xl font-black mb-6 uppercase tracking-tighter italic">Nuestro Propósito</h3>
-                            <p className="text-softWhite/70 text-lg leading-relaxed">
-                                Impulsar empresas latinoamericanas a competir a nivel global mediante soluciones digitales sólidas, escalables y estratégicamente diseñadas.
-                            </p>
-                            <div className="mt-8 pt-8 border-t border-white/5 font-bold text-accent uppercase tracking-[0.2em] text-xs">
-                                La tecnología multiplica resultados.
-                            </div>
-                        </motion.div>
-
-                        <motion.div whileHover={{ y: -10 }} className="p-12 bg-darkCharcoal/60 rounded-[40px] border border-white/5 relative overflow-hidden group">
-                            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-highlight/10 rounded-full blur-[60px] group-hover:bg-highlight/20 transition-all" />
-                            <Rocket className="w-12 h-12 text-highlight mb-8" />
-                            <h3 className="text-3xl font-black mb-6 uppercase tracking-tighter italic">Visión a 5 Años</h3>
-                            <p className="text-softWhite/70 text-lg leading-relaxed">
-                                Evolucionar de agencia a un <span className="text-white font-bold">ecosistema tecnológico</span> referente en LATAM, con soluciones SaaS propias y un portafolio de impacto internacional.
-                            </p>
-                            <div className="mt-8 pt-8 border-t border-white/5 font-bold text-highlight uppercase tracking-[0.2em] text-xs">
-                                BEYOND THE FUTURE.
-                            </div>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* ─── NUESTROS SERVICIOS ─ Full Screen Carousel ─── */}
+            {/* ─── FULL SCREEN CAROUSEL (sin label superior) ─── */}
             <section
                 className="relative overflow-hidden"
                 style={{ height: '100svh', minHeight: '600px' }}
@@ -290,12 +422,6 @@ const About = () => {
                         />
                     </motion.div>
                 </AnimatePresence>
-
-                {/* Section label (top left) */}
-                <div className="absolute top-8 left-8 z-20 flex items-center gap-3">
-                    <div className="w-6 h-px bg-accent" />
-                    <span className="text-accent font-bold tracking-[0.3em] uppercase text-xs">Nuestros Servicios</span>
-                </div>
 
                 {/* Slide counter (top right) */}
                 <div className="absolute top-8 right-8 z-20 font-black text-sm tracking-widest text-white/30">
@@ -487,36 +613,63 @@ const About = () => {
                 </div>
             </section>
 
-            {/* ─── NUESTROS VALORES ───────────────────── */}
+            {/* ─── PROPÓSITO & VISIÓN (movido debajo de Tecnología) ─── */}
+            <section className="py-24 px-6 bg-white/[0.02] border-y border-white/5">
+                <div className="container mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <motion.div whileHover={{ y: -10 }} className="p-12 bg-darkCharcoal/60 rounded-[40px] border border-white/5 relative overflow-hidden group">
+                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/10 rounded-full blur-[60px] group-hover:bg-accent/20 transition-all" />
+                            <Target className="w-12 h-12 text-accent mb-8" />
+                            <h3 className="text-3xl font-black mb-6 uppercase tracking-tighter italic">Nuestro Propósito</h3>
+                            <p className="text-softWhite/70 text-lg leading-relaxed">
+                                Impulsar empresas latinoamericanas a competir a nivel global mediante soluciones digitales sólidas, escalables y estratégicamente diseñadas.
+                            </p>
+                            <div className="mt-8 pt-8 border-t border-white/5 font-bold text-accent uppercase tracking-[0.2em] text-xs">
+                                La tecnología multiplica resultados.
+                            </div>
+                        </motion.div>
+
+                        <motion.div whileHover={{ y: -10 }} className="p-12 bg-darkCharcoal/60 rounded-[40px] border border-white/5 relative overflow-hidden group">
+                            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-highlight/10 rounded-full blur-[60px] group-hover:bg-highlight/20 transition-all" />
+                            <Rocket className="w-12 h-12 text-highlight mb-8" />
+                            <h3 className="text-3xl font-black mb-6 uppercase tracking-tighter italic">Visión a 5 Años</h3>
+                            <p className="text-softWhite/70 text-lg leading-relaxed">
+                                Evolucionar de agencia a un <span className="text-white font-bold">ecosistema tecnológico</span> referente en LATAM, con soluciones SaaS propias y un portafolio de impacto internacional.
+                            </p>
+                            <div className="mt-8 pt-8 border-t border-white/5 font-bold text-highlight uppercase tracking-[0.2em] text-xs">
+                                BEYOND THE FUTURE.
+                            </div>
+                        </motion.div>
+                    </div>
+                </div>
+            </section>
+
+            {/* ─── FLIP CARDS DE SERVICIOS ─────────────── */}
             <section className="py-32 px-6">
                 <div className="container mx-auto">
-                    <div className="text-center mb-20">
+                    <div className="text-center mb-16">
                         <motion.h2
                             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                             className="text-4xl md:text-7xl font-black mb-6 uppercase tracking-tight italic"
                         >
-                            Nuestros <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight">Valores</span>
+                            Lo que{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6b35] to-[#ffd93d]">
+                                Hacemos
+                            </span>
                         </motion.h2>
-                        <div className="h-1.5 w-32 bg-accent mx-auto" />
+                        <motion.p
+                            initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+                            className="text-softWhite/40 text-sm uppercase tracking-[0.3em] font-bold"
+                        >
+                            Toca una tarjeta para descubrir más
+                        </motion.p>
                     </div>
 
-                    <motion.div
-                        variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}
-                        className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6"
-                    >
-                        {values.map((v, i) => (
-                            <motion.div
-                                key={i} variants={itemVariants}
-                                className="p-8 bg-white/5 rounded-3xl border border-white/5 hover:border-accent/30 transition-all group"
-                            >
-                                <div className="p-4 bg-accent/10 rounded-2xl text-accent mb-6 group-hover:scale-110 transition-transform inline-block">
-                                    {v.icon}
-                                </div>
-                                <h4 className="text-sm font-bold uppercase tracking-widest mb-4">{v.title}</h4>
-                                <p className="text-xs text-softWhite/40 leading-relaxed italic">{v.desc}</p>
-                            </motion.div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                        {serviceCards.map((card, i) => (
+                            <FlipCard key={i} card={card} index={i} />
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
