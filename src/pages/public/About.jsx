@@ -4,8 +4,8 @@ import {
     Target, Rocket,
     ChevronRight, ChevronLeft,
     LayoutTemplate, Building2, Code2, Bot, MessageSquare, ShoppingCart, Plug,
-    TrendingUp, Cpu, Search, Layers, BarChart3, RefreshCw,
-    Shield, Gauge, Network, Star,
+    BarChart3, Search, Layers, Cpu, RefreshCw,
+    Shield, Network, Star,
 } from 'lucide-react';
 import Logo from '../../components/ui/Logo';
 
@@ -16,8 +16,8 @@ const slides = [
         type: 'intro',
         tag: null,
         icon: null,
-        headline: 'Tu negocio, arquitecturado para escalar.',
-        subtitle: 'Infraestructura digital que genera resultados, estructura operaciones y multiplica el valor de cada decisión.',
+        headline: 'Más ventas. Más orden. Más control.',
+        subtitle: 'Te ayudamos a vender más, organizar tu negocio y crecer con sistemas digitales bien hechos.',
         desc: null,
         bg: 'radial-gradient(ellipse at 60% 40%, #7c3aed18 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #06b6d415 0%, transparent 60%)',
         accentFrom: '#7c3aed',
@@ -28,9 +28,9 @@ const slides = [
         id: 1,
         tag: '01',
         icon: <LayoutTemplate className="w-12 h-12" />,
-        headline: 'Captación de Alta Conversión',
-        subtitle: 'Landing pages diseñadas para convertir tráfico en clientes.',
-        desc: 'Arquitectura orientada al negocio: copy estratégico, velocidad técnica y estructura de decisión.',
+        headline: 'Páginas que Realmente Venden',
+        subtitle: 'Tu página trabaja por ti las 24 horas, todos los días.',
+        desc: 'Diseñadas para que quien llegue, compre. Con la estructura, el mensaje y la velocidad correctos.',
         bg: 'radial-gradient(ellipse at 70% 30%, #0ea5e918 0%, transparent 65%), radial-gradient(ellipse at 10% 90%, #38bdf810 0%, transparent 55%)',
         accentFrom: '#0ea5e9',
         accentTo: '#38bdf8',
@@ -40,9 +40,9 @@ const slides = [
         id: 2,
         tag: '02',
         icon: <Building2 className="w-12 h-12" />,
-        headline: 'Presencia Corporativa Sólida',
-        subtitle: 'Sitios web que posicionan autoridad y generan confianza desde el primer contacto.',
-        desc: 'Escalables, administrables y optimizados para posicionamiento orgánico.',
+        headline: 'Presencia Profesional en Internet',
+        subtitle: 'Un sitio web que genera confianza desde el primer clic.',
+        desc: 'Bien diseñado, fácil de administrar y posicionado en Google.',
         bg: 'radial-gradient(ellipse at 30% 30%, #a855f718 0%, transparent 60%), radial-gradient(ellipse at 80% 75%, #ec489910 0%, transparent 55%)',
         accentFrom: '#a855f7',
         accentTo: '#ec4899',
@@ -52,9 +52,9 @@ const slides = [
         id: 3,
         tag: '03',
         icon: <Code2 className="w-12 h-12" />,
-        headline: 'Software que Estructura Operaciones',
-        subtitle: 'Sistemas internos a la medida que eliminan cuellos de botella y dan control total.',
-        desc: 'Dashboards, flujos de aprobación, roles y trazabilidad completa del negocio.',
+        headline: 'Sistemas que Ordenan tu Negocio',
+        subtitle: 'Deja de trabajar en desorden. Ten control total de tu operación.',
+        desc: 'Herramientas a la medida para gestionar procesos, equipos y resultados en un solo lugar.',
         bg: 'radial-gradient(ellipse at 60% 50%, #14b8a618 0%, transparent 60%), radial-gradient(ellipse at 20% 20%, #06b6d412 0%, transparent 55%)',
         accentFrom: '#14b8a6',
         accentTo: '#06b6d4',
@@ -64,9 +64,9 @@ const slides = [
         id: 4,
         tag: '04',
         icon: <Bot className="w-12 h-12" />,
-        headline: 'Inteligencia Aplicada al Negocio',
-        subtitle: 'Agentes con IA que procesan, clasifican y ejecutan operaciones sin intervención humana.',
-        desc: 'Decisiones más rápidas, costos operativos reducidos, equipos enfocados en lo estratégico.',
+        headline: 'Tareas que se Hacen Solas',
+        subtitle: 'Automatiza lo repetitivo y enfoca tu equipo en lo que importa.',
+        desc: 'Usamos inteligencia artificial para eliminar tareas manuales y reducir errores operativos.',
         bg: 'radial-gradient(ellipse at 50% 40%, #f59e0b18 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, #fb923c10 0%, transparent 55%)',
         accentFrom: '#f59e0b',
         accentTo: '#fb923c',
@@ -76,9 +76,9 @@ const slides = [
         id: 5,
         tag: '05',
         icon: <MessageSquare className="w-12 h-12" />,
-        headline: 'Atención Comercial Siempre Activa',
-        subtitle: 'Canales de comunicación que venden y sirven sin depender de horarios ni personal.',
-        desc: 'Integración con CRM, flujos de cierre y seguimiento automatizado de prospectos.',
+        headline: 'Atención al Cliente Siempre Activa',
+        subtitle: 'Responde, asesora y vende sin depender de horarios ni de personal.',
+        desc: 'Chatbots conectados a WhatsApp, tu web y redes sociales que cierran ventas automáticamente.',
         bg: 'radial-gradient(ellipse at 40% 30%, #f4365618 0%, transparent 60%), radial-gradient(ellipse at 75% 75%, #fb718510 0%, transparent 55%)',
         accentFrom: '#f43656',
         accentTo: '#fb7185',
@@ -88,9 +88,9 @@ const slides = [
         id: 6,
         tag: '06',
         icon: <ShoppingCart className="w-12 h-12" />,
-        headline: 'Canal de Venta Digital Propio',
-        subtitle: 'Tiendas con infraestructura preparada para escalar volumen sin fricción operativa.',
-        desc: 'Pagos, logística, inventario y analítica integrados en un solo sistema.',
+        headline: 'Vende en Internet sin Complicaciones',
+        subtitle: 'Tu tienda online lista para recibir pedidos desde cualquier lugar.',
+        desc: 'Pagos integrados, inventario sincronizado y envíos automatizados desde el día uno.',
         bg: 'radial-gradient(ellipse at 65% 35%, #22c55e18 0%, transparent 60%), radial-gradient(ellipse at 15% 75%, #84cc1610 0%, transparent 55%)',
         accentFrom: '#22c55e',
         accentTo: '#84cc16',
@@ -100,9 +100,9 @@ const slides = [
         id: 7,
         tag: '07',
         icon: <Plug className="w-12 h-12" />,
-        headline: 'Integración Operativa Total',
-        subtitle: 'CRM, ERP, facturación y herramientas digitales sincronizadas en tiempo real.',
-        desc: 'Un único flujo de datos. Sin duplicidad, sin retrasos, sin procesos manuales innecesarios.',
+        headline: 'Tus Herramientas Trabajando Juntas',
+        subtitle: 'Conecta todo lo que usas en un solo flujo sin pasos manuales.',
+        desc: 'CRM, facturación, redes sociales y más — todo sincronizado y funcionando en tiempo real.',
         bg: 'radial-gradient(ellipse at 55% 45%, #6366f118 0%, transparent 60%), radial-gradient(ellipse at 20% 70%, #818cf812 0%, transparent 55%)',
         accentFrom: '#6366f1',
         accentTo: '#818cf8',
@@ -112,9 +112,9 @@ const slides = [
         id: 8,
         tag: '08',
         icon: <BarChart3 className="w-12 h-12" />,
-        headline: 'Resultados que Justifican la Inversión',
-        subtitle: 'Cada decisión técnica se mide en impacto de negocio: conversión, retención y escalabilidad.',
-        desc: 'Métricas claras, iteración continua y arquitectura pensada para crecer.',
+        headline: 'Resultados que Puedes Medir',
+        subtitle: 'Cada proyecto tiene métricas claras: más ventas, menos costos, más eficiencia.',
+        desc: 'No trabajamos a ciegas. Medimos, ajustamos y mejoramos continuamente.',
         bg: 'radial-gradient(ellipse at 45% 35%, #e8790018 0%, transparent 60%), radial-gradient(ellipse at 75% 80%, #dc262610 0%, transparent 55%)',
         accentFrom: '#e87900',
         accentTo: '#dc2626',
@@ -122,49 +122,49 @@ const slides = [
     },
 ];
 
-/* ─── STRATEGIC CAPABILITY CARDS ───────────────────── */
-const capabilityCards = [
+/* ─── SOLUTION CARDS ─────────────────────────────────── */
+const solutionCards = [
     {
-        icon: <Layers className="w-8 h-8" />,
-        title: 'Arquitectura de Conversión',
-        front: 'Estructuras digitales diseñadas para convertir, no solo para verse bien.',
-        back: 'Jerarquía visual, copy de decisión, velocidad técnica y pruebas A/B integradas desde el diseño.',
+        icon: <LayoutTemplate className="w-8 h-8" />,
+        title: 'Páginas que Venden',
+        front: 'Una página bien hecha convierte visitas en clientes.',
+        back: 'Estructura de conversión, velocidad técnica y mensaje correcto para que la gente tome acción.',
     },
     {
         icon: <Network className="w-8 h-8" />,
-        title: 'Infraestructura Escalable',
-        front: 'Sistemas que crecen con tu negocio sin reconstruirse desde cero.',
-        back: 'Arquitectura modular, APIs desacopladas, bases de datos optimizadas y despliegue en la nube.',
+        title: 'Sistemas que Escalan',
+        front: 'Herramientas que crecen contigo sin romperse en el camino.',
+        back: 'Construimos con tecnología modular para que puedas agregar funciones sin empezar desde cero.',
     },
     {
         icon: <Bot className="w-8 h-8" />,
-        title: 'Automatización con Criterio',
-        front: 'Procesos operativos eliminados o delegados a lógica inteligente.',
-        back: 'Agentes IA, flujos condicionales, triggers de negocio y reducción de tiempo operativo documentada.',
+        title: 'Automatización que Ahorra Tiempo',
+        front: 'Más productividad sin contratar más personas.',
+        back: 'Identificamos tareas repetitivas y las automatizamos con lógica inteligente que trabaja sola.',
     },
     {
         icon: <Star className="w-8 h-8" />,
-        title: 'Experiencia de Marca Digital',
-        front: 'Identidad digital que posiciona, distingue y retiene.',
-        back: 'Diseño de sistemas visuales, narrativa de marca y experiencias de usuario orientadas a autoridad.',
+        title: 'Imagen que Genera Confianza',
+        front: 'Tu marca digital refleja la calidad de tu negocio.',
+        back: 'Diseño consistente, identidad visual sólida y experiencia de usuario que posiciona autoridad.',
     },
     {
         icon: <Plug className="w-8 h-8" />,
-        title: 'Integración Operativa',
-        front: 'Tus herramientas trabajando juntas como un único sistema.',
-        back: 'Conexión entre CRM, ERP, pasarelas de pago, logística y plataformas de comunicación.',
+        title: 'Integración de Herramientas',
+        front: 'Todo lo que usas, conectado y funcionando en conjunto.',
+        back: 'Unificamos tu CRM, tienda, pagos y comunicación para que trabajen como un solo sistema.',
     },
     {
         icon: <ShoppingCart className="w-8 h-8" />,
-        title: 'Comercio Digital Optimizado',
-        front: 'Canales de venta construidos para escalar volumen y retener clientes.',
-        back: 'Catálogo dinámico, checkout optimizado, pagos internacionales y analítica de comportamiento.',
+        title: 'Tiendas Online Optimizadas',
+        front: 'Vende sin límites de horario ni de geografía.',
+        back: 'Checkout rápido, pagos seguros y gestión de inventario integrada lista para escalar.',
     },
     {
         icon: <Shield className="w-8 h-8" />,
-        title: 'Seguridad y Control de Acceso',
-        front: 'Infraestructura robusta con roles, trazabilidad y protección real.',
-        back: 'Autenticación avanzada, gestión de permisos, auditoría de operaciones y cumplimiento de datos.',
+        title: 'Control y Seguridad',
+        front: 'Tú decides quién accede a qué dentro de tu negocio.',
+        back: 'Gestión de roles, trazabilidad de operaciones y protección de datos para que todo esté bajo control.',
     },
 ];
 
@@ -173,26 +173,26 @@ const methodPillars = [
     {
         icon: <Search className="w-8 h-8" />,
         step: '01',
-        label: 'Diagnóstico Estratégico',
-        desc: 'Identificamos las brechas entre tu operación actual y el potencial digital de tu negocio.',
+        label: 'Analizamos tu negocio',
+        desc: 'Entendemos cómo funciona tu operación, qué frena tu crecimiento y qué oportunidades existen.',
     },
     {
         icon: <Layers className="w-8 h-8" />,
         step: '02',
-        label: 'Arquitectura Digital',
-        desc: 'Diseñamos la estructura técnica que soporte el crecimiento sin deuda operativa.',
+        label: 'Diseñamos la solución',
+        desc: 'Definimos exactamente qué herramientas, sistemas y procesos necesitas. Sin improvisación.',
     },
     {
         icon: <Cpu className="w-8 h-8" />,
         step: '03',
-        label: 'Ejecución Inteligente',
-        desc: 'Implementamos con precisión, integramos herramientas y automatizamos flujos clave.',
+        label: 'Lo construimos y activamos',
+        desc: 'Implementamos todo, conectamos tus herramientas y te entregamos algo que funciona desde el día uno.',
     },
     {
         icon: <RefreshCw className="w-8 h-8" />,
         step: '04',
-        label: 'Optimización Continua',
-        desc: 'Medimos resultados reales e iteramos para maximizar el retorno de cada componente.',
+        label: 'Medimos y mejoramos',
+        desc: 'Seguimos los resultados, corregimos lo que no funciona y optimizamos para que sigas creciendo.',
     },
 ];
 
@@ -247,11 +247,9 @@ const FlipCard = ({ card, index }) => {
                 style={{ transformStyle: 'preserve-3d', width: '100%', height: '100%', position: 'relative' }}
             >
                 {/* FRONT */}
-                <div
-                    className="absolute inset-0 rounded-3xl p-6 flex flex-col justify-between"
+                <div className="absolute inset-0 rounded-3xl p-6 flex flex-col justify-between"
                     style={{
-                        backfaceVisibility: 'hidden',
-                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden',
                         background: 'linear-gradient(135deg, #0e0e0e 0%, #1a1a1a 100%)',
                         border: `1px solid ${c1}40`,
                         boxShadow: `0 0 18px ${c1}25, inset 0 0 30px ${c1}08`,
@@ -269,16 +267,14 @@ const FlipCard = ({ card, index }) => {
                         <p className="text-xs font-medium" style={{ color: c1, transition: 'color 1.8s ease' }}>{card.front}</p>
                     </div>
                     <div className="absolute bottom-4 right-5 text-[10px] font-bold uppercase tracking-widest opacity-40" style={{ color: c1 }}>
-                        ✦ detalle
+                        ✦ cómo lo hacemos
                     </div>
                 </div>
 
                 {/* BACK */}
-                <div
-                    className="absolute inset-0 rounded-3xl p-6 flex flex-col items-center justify-center text-center"
+                <div className="absolute inset-0 rounded-3xl p-6 flex flex-col items-center justify-center text-center"
                     style={{
-                        backfaceVisibility: 'hidden',
-                        WebkitBackfaceVisibility: 'hidden',
+                        backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden',
                         transform: 'rotateY(180deg)',
                         background: `linear-gradient(135deg, ${c1}22 0%, ${c2}18 100%)`,
                         border: `1px solid ${c2}60`,
@@ -304,11 +300,7 @@ const About = () => {
     const [direction, setDirection] = useState(1);
     const [paused, setPaused] = useState(false);
 
-    const goTo = useCallback((index, dir = 1) => {
-        setDirection(dir);
-        setCurrent(index);
-    }, []);
-
+    const goTo = useCallback((index, dir = 1) => { setDirection(dir); setCurrent(index); }, []);
     const next = useCallback(() => goTo((current + 1) % slides.length, 1), [current, goTo]);
     const prev = useCallback(() => goTo((current - 1 + slides.length) % slides.length, -1), [current, goTo]);
 
@@ -324,11 +316,11 @@ const About = () => {
     return (
         <div className="min-h-screen pt-20 overflow-x-hidden">
 
-            {/* 1 ─── HERO ───────────────────────────────── */}
+            {/* 1 ─── HERO ───────────────────────────── */}
             <section className="relative py-20 px-6 overflow-hidden">
                 <div className="container mx-auto relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: 'easeOut' }}>
-                        <span className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Strategic Technology Partner</span>
+                        <span className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Tu socio tecnológico</span>
                         <h1 className="text-6xl md:text-9xl font-black mb-8 leading-[0.8] tracking-tighter uppercase italic">
                             Digital <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-highlight to-accent">Power</span>
@@ -337,7 +329,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* 2 ─── QUIÉNES SOMOS ─────────────────────── */}
+            {/* 2 ─── QUIÉNES SOMOS ─────────────────── */}
             <section className="py-24 px-6 relative">
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -345,20 +337,20 @@ const About = () => {
                             <span className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-6 block">¿Quiénes Somos?</span>
                             <h2 className="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tighter leading-tight">
                                 No somos una agencia.<br />
-                                <span className="text-highlight">Somos tu arquitecto digital.</span>
+                                <span className="text-highlight">Somos tu socio digital.</span>
                             </h2>
                             <p className="text-lg text-softWhite/70 leading-relaxed mb-6">
-                                <strong className="text-white">Groob Code Technology</strong> es una consultora tecnológica boutique. Trabajamos con empresas que buscan estructurar, automatizar o escalar sus operaciones mediante infraestructura digital de alto rendimiento.
+                                En <strong className="text-white">Groob Code Technology</strong> ayudamos a negocios en crecimiento a vender más, operar mejor y escalar sin caos — a través de sistemas digitales bien construidos.
                             </p>
                             <p className="text-base text-softWhite/50 leading-relaxed mb-10">
-                                Nuestro enfoque no es entregar proyectos. Es diseñar sistemas que produzcan resultados medibles: más conversión, menos carga operativa, mayor control y crecimiento sostenido.
+                                No improvisamos. Analizamos tu negocio, diseñamos la solución correcta y la ejecutamos con precisión. Nuestro objetivo es que cada peso invertido genere un retorno claro.
                             </p>
                             <div className="grid grid-cols-2 gap-4">
                                 {[
-                                    { label: 'Visión Estratégica', sub: 'Cada decisión técnica tiene un propósito de negocio.' },
-                                    { label: 'Arquitectura Sólida', sub: 'Construido para escalar, no para reemplazar.' },
-                                    { label: 'Resultados Medibles', sub: 'Métricas reales que justifican la inversión.' },
-                                    { label: 'Socio a Largo Plazo', sub: 'No un proveedor. Un aliado estratégico.' },
+                                    { label: 'Enfoque en resultados', sub: 'Métricas reales, no promesas vacías.' },
+                                    { label: 'Sistemas bien hechos', sub: 'Pensados para crecer, no para reemplazar.' },
+                                    { label: 'Proceso claro', sub: 'Sabes qué pasa en cada etapa del proyecto.' },
+                                    { label: 'Relación a largo plazo', sub: 'No un proveedor. Un aliado de crecimiento.' },
                                 ].map((item) => (
                                     <div key={item.label} className="p-4 bg-white/5 rounded-xl border border-white/10">
                                         <div className="flex items-center gap-2 mb-1">
@@ -384,7 +376,7 @@ const About = () => {
                 </div>
             </section>
 
-            {/* 3 ─── FULL SCREEN CAROUSEL ──────────────── */}
+            {/* 3 ─── FULL SCREEN CAROUSEL ──────────── */}
             <section
                 className="relative overflow-hidden"
                 style={{ height: '100svh', minHeight: '600px' }}
@@ -393,26 +385,19 @@ const About = () => {
             >
                 <AnimatePresence mode="wait" custom={direction}>
                     <motion.div
-                        key={`bg-${current}`}
-                        custom={direction}
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1, transition: { duration: 0.9 } }}
+                        key={`bg-${current}`} custom={direction}
+                        initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.9 } }}
                         exit={{ opacity: 0, transition: { duration: 0.45 } }}
-                        className="absolute inset-0 bg-[#050505]"
-                        style={{ background: slide.bg }}
+                        className="absolute inset-0 bg-[#050505]" style={{ background: slide.bg }}
                     >
                         {slide.tag && (
-                            <div
-                                className="absolute right-[-2%] top-1/2 -translate-y-1/2 font-black leading-none select-none pointer-events-none"
-                                style={{ fontSize: 'clamp(200px, 30vw, 400px)', color: 'rgba(255,255,255,0.025)', letterSpacing: '-0.05em' }}
-                            >
+                            <div className="absolute right-[-2%] top-1/2 -translate-y-1/2 font-black leading-none select-none pointer-events-none"
+                                style={{ fontSize: 'clamp(200px, 30vw, 400px)', color: 'rgba(255,255,255,0.025)', letterSpacing: '-0.05em' }}>
                                 {slide.tag}
                             </div>
                         )}
-                        <div
-                            className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[140px] pointer-events-none"
-                            style={{ background: slide.glowColor, opacity: 0.55 }}
-                        />
+                        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full blur-[140px] pointer-events-none"
+                            style={{ background: slide.glowColor, opacity: 0.55 }} />
                     </motion.div>
                 </AnimatePresence>
 
@@ -422,15 +407,9 @@ const About = () => {
                 </div>
 
                 <AnimatePresence mode="wait" custom={direction}>
-                    <motion.div
-                        key={`content-${current}`}
-                        custom={direction}
-                        variants={slideVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center"
-                    >
+                    <motion.div key={`content-${current}`} custom={direction}
+                        variants={slideVariants} initial="enter" animate="center" exit="exit"
+                        className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center">
                         {isIntro ? (
                             <div className="max-w-4xl mx-auto">
                                 <motion.div variants={fadeUp} custom={0} initial="hidden" animate="visible"
@@ -441,9 +420,7 @@ const About = () => {
                                 <motion.h2 variants={fadeUp} custom={1} initial="hidden" animate="visible"
                                     className="font-black uppercase tracking-tighter italic leading-[0.9] mb-8"
                                     style={{ fontSize: 'clamp(3rem, 8vw, 7rem)' }}>
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
-                                        {slide.headline}
-                                    </span>
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">{slide.headline}</span>
                                 </motion.h2>
                                 <motion.p variants={fadeUp} custom={2} initial="hidden" animate="visible"
                                     className="text-xl md:text-2xl text-softWhite/60 leading-relaxed max-w-2xl mx-auto font-light">
@@ -461,9 +438,8 @@ const About = () => {
                                     {slide.icon}
                                 </motion.div>
                                 <motion.div variants={fadeUp} custom={1} initial="hidden" animate="visible"
-                                    className="text-xs font-black tracking-[0.5em] uppercase mb-4"
-                                    style={{ color: slide.accentFrom }}>
-                                    Capacidad {slide.tag}
+                                    className="text-xs font-black tracking-[0.5em] uppercase mb-4" style={{ color: slide.accentFrom }}>
+                                    {slide.tag}
                                 </motion.div>
                                 <motion.h2 variants={fadeUp} custom={2} initial="hidden" animate="visible"
                                     className="font-black uppercase tracking-tighter italic leading-tight mb-5"
@@ -471,8 +447,7 @@ const About = () => {
                                     {slide.headline}
                                 </motion.h2>
                                 <motion.p variants={fadeUp} custom={3} initial="hidden" animate="visible"
-                                    className="text-lg md:text-xl font-semibold mb-4"
-                                    style={{ color: slide.accentFrom }}>
+                                    className="text-lg md:text-xl font-semibold mb-4" style={{ color: slide.accentFrom }}>
                                     {slide.subtitle}
                                 </motion.p>
                                 {slide.desc && (
@@ -504,56 +479,42 @@ const About = () => {
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/5 z-20">
-                    <motion.div
-                        key={`progress-${current}`}
-                        initial={{ width: '0%' }}
-                        animate={paused ? {} : { width: '100%' }}
-                        transition={{ duration: 8, ease: 'linear' }}
-                        className="h-full"
-                        style={{ background: `linear-gradient(to right, ${slide.accentFrom}, ${slide.accentTo})` }}
-                    />
+                    <motion.div key={`progress-${current}`} initial={{ width: '0%' }}
+                        animate={paused ? {} : { width: '100%' }} transition={{ duration: 8, ease: 'linear' }}
+                        className="h-full" style={{ background: `linear-gradient(to right, ${slide.accentFrom}, ${slide.accentTo})` }} />
                 </div>
             </section>
 
-            {/* 4 ─── MÉTODO GROOB CODE (formerly "Tecnología con Visión") ── */}
+            {/* 4 ─── CÓMO TRABAJAMOS ────────────────── */}
             <section className="py-28 px-6 bg-white/[0.015] border-t border-white/5">
                 <div className="container mx-auto max-w-5xl">
                     <div className="text-center mb-16">
                         <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                             className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block">
-                            Nuestro Método
+                            Nuestro Proceso
                         </motion.span>
                         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                             className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic mb-4">
-                            El{' '}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight">Framework</span>
-                            {' '}Groob
+                            Cómo{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight">trabajamos</span>
                         </motion.h2>
-                        <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+                        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
                             className="text-softWhite/40 text-base max-w-xl mx-auto">
-                            Un proceso estructurado que convierte el potencial digital en ventaja competitiva real.
+                            Un proceso claro, estructurado y sin sorpresas.
                         </motion.p>
                     </div>
 
-                    <motion.div
-                        initial="hidden" whileInView="visible" viewport={{ once: true }}
+                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}
                         variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.12 } } }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-                    >
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {methodPillars.map((p, i) => (
                             <motion.div key={i}
                                 variants={{ hidden: { y: 24, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
                                 whileHover={{ y: -6, scale: 1.02 }}
-                                className="group relative p-8 rounded-3xl border border-white/5 bg-white/[0.03] hover:border-accent/30 hover:bg-white/[0.06] transition-all cursor-default overflow-hidden"
-                            >
-                                {/* Step number watermark */}
-                                <div className="absolute -top-2 -right-2 text-[80px] font-black text-white/[0.03] leading-none select-none pointer-events-none">
-                                    {p.step}
-                                </div>
+                                className="group relative p-8 rounded-3xl border border-white/5 bg-white/[0.03] hover:border-accent/30 hover:bg-white/[0.06] transition-all cursor-default overflow-hidden">
+                                <div className="absolute -top-2 -right-2 text-[80px] font-black text-white/[0.03] leading-none select-none pointer-events-none">{p.step}</div>
                                 <div className="text-xs font-black tracking-[0.4em] uppercase text-accent/60 mb-4">{p.step}</div>
-                                <div className="p-3 rounded-2xl bg-accent/10 text-accent mb-5 inline-flex group-hover:scale-110 transition-transform">
-                                    {p.icon}
-                                </div>
+                                <div className="p-3 rounded-2xl bg-accent/10 text-accent mb-5 inline-flex group-hover:scale-110 transition-transform">{p.icon}</div>
                                 <h4 className="font-black uppercase tracking-tight text-sm text-white mb-3">{p.label}</h4>
                                 <p className="text-xs text-softWhite/40 leading-relaxed">{p.desc}</p>
                             </motion.div>
@@ -562,42 +523,42 @@ const About = () => {
                 </div>
             </section>
 
-            {/* 5 ─── CAPACIDADES ESTRATÉGICAS (Flip Cards) ─ */}
+            {/* 5 ─── SOLUCIONES (Flip Cards) ────────── */}
             <section className="py-32 px-6">
                 <div className="container mx-auto">
                     <div className="text-center mb-16">
                         <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                             className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block">
-                            Capacidades
+                            Soluciones
                         </motion.span>
                         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                            className="text-4xl md:text-7xl font-black mb-6 uppercase tracking-tight italic">
-                            Lo que{' '}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6b35] to-[#ffd93d]">construimos</span>
+                            className="text-4xl md:text-7xl font-black mb-4 uppercase tracking-tight italic">
+                            En qué{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6b35] to-[#ffd93d]">te ayudamos</span>
                         </motion.h2>
-                        <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+                        <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
                             className="text-softWhite/40 text-sm uppercase tracking-[0.3em] font-bold">
-                            Toca una tarjeta para ver el detalle técnico
+                            Toca una tarjeta para ver cómo lo hacemos
                         </motion.p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                        {capabilityCards.map((card, i) => <FlipCard key={i} card={card} index={i} />)}
+                        {solutionCards.map((card, i) => <FlipCard key={i} card={card} index={i} />)}
                     </div>
                 </div>
             </section>
 
-            {/* 6 ─── PROPÓSITO & VISIÓN ─────────────────── */}
+            {/* 6 ─── PROPÓSITO & VISIÓN ─────────────── */}
             <section className="py-24 px-6 bg-white/[0.02] border-t border-white/5">
                 <div className="container mx-auto">
                     <div className="text-center mb-14">
                         <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                             className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block">
-                            Propósito & Visión
+                            Por qué existimos
                         </motion.span>
                         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                             className="text-4xl md:text-5xl font-black uppercase tracking-tighter italic">
-                            Construido para{' '}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight">trascender</span>
+                            Lo que nos{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight">mueve</span>
                         </motion.h2>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -606,10 +567,10 @@ const About = () => {
                             <Target className="w-12 h-12 text-accent mb-8" />
                             <h3 className="text-3xl font-black mb-6 uppercase tracking-tighter italic">Nuestro Propósito</h3>
                             <p className="text-softWhite/70 text-lg leading-relaxed">
-                                Convertirnos en el socio tecnológico estratégico que las empresas latinoamericanas necesitan para competir en un mercado global: con infraestructura sólida, decisiones basadas en datos y sistemas que escalan junto al negocio.
+                                Ayudar a empresas latinoamericanas a crecer con tecnología bien aplicada. No queremos ser otro proveedor de servicios — queremos ser el aliado que acompaña tu negocio a largo plazo.
                             </p>
                             <div className="mt-8 pt-8 border-t border-white/5 font-bold text-accent uppercase tracking-[0.2em] text-xs">
-                                Tecnología que multiplica valor.
+                                Tecnología que genera resultados reales.
                             </div>
                         </motion.div>
 
@@ -618,7 +579,7 @@ const About = () => {
                             <Rocket className="w-12 h-12 text-highlight mb-8" />
                             <h3 className="text-3xl font-black mb-6 uppercase tracking-tighter italic">Visión a 5 Años</h3>
                             <p className="text-softWhite/70 text-lg leading-relaxed">
-                                Ser la consultora tecnológica de referencia en LATAM para empresas en expansión, con soluciones SaaS propias, presencia internacional y un modelo de crecimiento compartido con nuestros clientes.
+                                Ser la empresa tecnológica de referencia para negocios en crecimiento en LATAM — con soluciones propias, presencia regional y un historial de resultados que hablen por sí solos.
                             </p>
                             <div className="mt-8 pt-8 border-t border-white/5 font-bold text-highlight uppercase tracking-[0.2em] text-xs">
                                 BEYOND THE FUTURE.
