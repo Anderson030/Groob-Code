@@ -334,7 +334,7 @@ const About = () => {
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                            <span className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-6 block">¿Quiénes Somos?</span>
+
                             <h2 className="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tighter leading-tight">
                                 No somos una agencia.<br />
                                 <span className="text-highlight">Somos tu socio digital.</span>
@@ -342,22 +342,17 @@ const About = () => {
                             <p className="text-lg text-softWhite/70 leading-relaxed mb-6">
                                 En <strong className="text-white">Groob Code Technology</strong> ayudamos a negocios en crecimiento a vender más, operar mejor y escalar sin caos — a través de sistemas digitales bien construidos.
                             </p>
-                            <p className="text-base text-softWhite/50 leading-relaxed mb-10">
-                                No improvisamos. Analizamos tu negocio, diseñamos la solución correcta y la ejecutamos con precisión. Nuestro objetivo es que cada peso invertido genere un retorno claro.
-                            </p>
+
                             <div className="grid grid-cols-2 gap-4">
                                 {[
-                                    { label: 'Enfoque en resultados', sub: 'Métricas reales, no promesas vacías.' },
-                                    { label: 'Sistemas bien hechos', sub: 'Pensados para crecer, no para reemplazar.' },
-                                    { label: 'Proceso claro', sub: 'Sabes qué pasa en cada etapa del proyecto.' },
-                                    { label: 'Relación a largo plazo', sub: 'No un proveedor. Un aliado de crecimiento.' },
-                                ].map((item) => (
-                                    <div key={item.label} className="p-4 bg-white/5 rounded-xl border border-white/10">
-                                        <div className="flex items-center gap-2 mb-1">
-                                            <div className="w-2 h-2 rounded-full bg-accent animate-pulse flex-shrink-0" />
-                                            <span className="text-xs font-black uppercase tracking-widest text-white">{item.label}</span>
-                                        </div>
-                                        <p className="text-[11px] text-softWhite/40 pl-4">{item.sub}</p>
+                                    'Orientación a Resultados',
+                                    'Arquitectura Escalable',
+                                    'Ejecución Estructurada',
+                                    'Alianza Estratégica',
+                                ].map((label) => (
+                                    <div key={label} className="p-4 bg-white/5 rounded-xl border border-white/10 flex items-center gap-2">
+                                        <div className="w-2 h-2 rounded-full bg-accent animate-pulse flex-shrink-0" />
+                                        <span className="text-xs font-black uppercase tracking-widest text-white">{label}</span>
                                     </div>
                                 ))}
                             </div>
