@@ -4,7 +4,8 @@ import {
     Target, Rocket,
     ChevronRight, ChevronLeft,
     LayoutTemplate, Building2, Code2, Bot, MessageSquare, ShoppingCart, Plug,
-    Sparkles, TrendingUp, Cpu,
+    TrendingUp, Cpu, Search, Layers, BarChart3, RefreshCw,
+    Shield, Gauge, Network, Star,
 } from 'lucide-react';
 import Logo from '../../components/ui/Logo';
 
@@ -15,8 +16,8 @@ const slides = [
         type: 'intro',
         tag: null,
         icon: null,
-        headline: 'No solo desarrollamos.',
-        subtitle: 'Construimos ecosistemas digitales que venden, automatizan y escalan negocios.',
+        headline: 'Tu negocio, arquitecturado para escalar.',
+        subtitle: 'Infraestructura digital que genera resultados, estructura operaciones y multiplica el valor de cada decisión.',
         desc: null,
         bg: 'radial-gradient(ellipse at 60% 40%, #7c3aed18 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, #06b6d415 0%, transparent 60%)',
         accentFrom: '#7c3aed',
@@ -27,9 +28,9 @@ const slides = [
         id: 1,
         tag: '01',
         icon: <LayoutTemplate className="w-12 h-12" />,
-        headline: 'Captación Inteligente',
-        subtitle: 'Landing Pages optimizadas para conversión.',
-        desc: 'Velocidad, copy persuasivo y estructura diseñada para maximizar ROI.',
+        headline: 'Captación de Alta Conversión',
+        subtitle: 'Landing pages diseñadas para convertir tráfico en clientes.',
+        desc: 'Arquitectura orientada al negocio: copy estratégico, velocidad técnica y estructura de decisión.',
         bg: 'radial-gradient(ellipse at 70% 30%, #0ea5e918 0%, transparent 65%), radial-gradient(ellipse at 10% 90%, #38bdf810 0%, transparent 55%)',
         accentFrom: '#0ea5e9',
         accentTo: '#38bdf8',
@@ -39,9 +40,9 @@ const slides = [
         id: 2,
         tag: '02',
         icon: <Building2 className="w-12 h-12" />,
-        headline: 'Presencia Corporativa de Alto Nivel',
-        subtitle: 'Sitios web estratégicos que fortalecen su marca y generan confianza real.',
-        desc: 'Diseño, SEO y gestión profesional.',
+        headline: 'Presencia Corporativa Sólida',
+        subtitle: 'Sitios web que posicionan autoridad y generan confianza desde el primer contacto.',
+        desc: 'Escalables, administrables y optimizados para posicionamiento orgánico.',
         bg: 'radial-gradient(ellipse at 30% 30%, #a855f718 0%, transparent 60%), radial-gradient(ellipse at 80% 75%, #ec489910 0%, transparent 55%)',
         accentFrom: '#a855f7',
         accentTo: '#ec4899',
@@ -51,9 +52,9 @@ const slides = [
         id: 3,
         tag: '03',
         icon: <Code2 className="w-12 h-12" />,
-        headline: 'Sistemas que Transforman Operaciones',
-        subtitle: 'Software a la medida con dashboards, roles y seguridad avanzada.',
-        desc: 'Menos errores. Más control. Más rentabilidad.',
+        headline: 'Software que Estructura Operaciones',
+        subtitle: 'Sistemas internos a la medida que eliminan cuellos de botella y dan control total.',
+        desc: 'Dashboards, flujos de aprobación, roles y trazabilidad completa del negocio.',
         bg: 'radial-gradient(ellipse at 60% 50%, #14b8a618 0%, transparent 60%), radial-gradient(ellipse at 20% 20%, #06b6d412 0%, transparent 55%)',
         accentFrom: '#14b8a6',
         accentTo: '#06b6d4',
@@ -63,9 +64,9 @@ const slides = [
         id: 4,
         tag: '04',
         icon: <Bot className="w-12 h-12" />,
-        headline: 'Automatización con Inteligencia Artificial',
-        subtitle: 'Agentes autónomos que clasifican, analizan y ejecutan tareas complejas.',
-        desc: 'Su equipo enfocado en lo estratégico, no en lo repetitivo.',
+        headline: 'Inteligencia Aplicada al Negocio',
+        subtitle: 'Agentes con IA que procesan, clasifican y ejecutan operaciones sin intervención humana.',
+        desc: 'Decisiones más rápidas, costos operativos reducidos, equipos enfocados en lo estratégico.',
         bg: 'radial-gradient(ellipse at 50% 40%, #f59e0b18 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, #fb923c10 0%, transparent 55%)',
         accentFrom: '#f59e0b',
         accentTo: '#fb923c',
@@ -75,9 +76,9 @@ const slides = [
         id: 5,
         tag: '05',
         icon: <MessageSquare className="w-12 h-12" />,
-        headline: 'Atención y Ventas Automatizadas',
-        subtitle: 'Chatbots para WhatsApp, web y redes con integración CRM y pagos.',
-        desc: 'Clientes atendidos 24/7 sin fricción.',
+        headline: 'Atención Comercial Siempre Activa',
+        subtitle: 'Canales de comunicación que venden y sirven sin depender de horarios ni personal.',
+        desc: 'Integración con CRM, flujos de cierre y seguimiento automatizado de prospectos.',
         bg: 'radial-gradient(ellipse at 40% 30%, #f4365618 0%, transparent 60%), radial-gradient(ellipse at 75% 75%, #fb718510 0%, transparent 55%)',
         accentFrom: '#f43656',
         accentTo: '#fb7185',
@@ -87,9 +88,9 @@ const slides = [
         id: 6,
         tag: '06',
         icon: <ShoppingCart className="w-12 h-12" />,
-        headline: 'Comercio Digital Escalable',
-        subtitle: 'Tiendas online optimizadas con pagos integrados, inventario y logística sincronizada.',
-        desc: 'Vende sin límites físicos.',
+        headline: 'Canal de Venta Digital Propio',
+        subtitle: 'Tiendas con infraestructura preparada para escalar volumen sin fricción operativa.',
+        desc: 'Pagos, logística, inventario y analítica integrados en un solo sistema.',
         bg: 'radial-gradient(ellipse at 65% 35%, #22c55e18 0%, transparent 60%), radial-gradient(ellipse at 15% 75%, #84cc1610 0%, transparent 55%)',
         accentFrom: '#22c55e',
         accentTo: '#84cc16',
@@ -99,70 +100,103 @@ const slides = [
         id: 7,
         tag: '07',
         icon: <Plug className="w-12 h-12" />,
-        headline: 'Integración Total',
-        subtitle: 'Conectamos CRM, ERP y herramientas digitales en un solo flujo automatizado.',
-        desc: 'Información en tiempo real. Cero procesos manuales innecesarios.',
+        headline: 'Integración Operativa Total',
+        subtitle: 'CRM, ERP, facturación y herramientas digitales sincronizadas en tiempo real.',
+        desc: 'Un único flujo de datos. Sin duplicidad, sin retrasos, sin procesos manuales innecesarios.',
         bg: 'radial-gradient(ellipse at 55% 45%, #6366f118 0%, transparent 60%), radial-gradient(ellipse at 20% 70%, #818cf812 0%, transparent 55%)',
         accentFrom: '#6366f1',
         accentTo: '#818cf8',
         glowColor: 'rgba(99,102,241,0.28)',
     },
+    {
+        id: 8,
+        tag: '08',
+        icon: <BarChart3 className="w-12 h-12" />,
+        headline: 'Resultados que Justifican la Inversión',
+        subtitle: 'Cada decisión técnica se mide en impacto de negocio: conversión, retención y escalabilidad.',
+        desc: 'Métricas claras, iteración continua y arquitectura pensada para crecer.',
+        bg: 'radial-gradient(ellipse at 45% 35%, #e8790018 0%, transparent 60%), radial-gradient(ellipse at 75% 80%, #dc262610 0%, transparent 55%)',
+        accentFrom: '#e87900',
+        accentTo: '#dc2626',
+        glowColor: 'rgba(232,121,0,0.28)',
+    },
 ];
 
-/* ─── FLIP CARDS DATA ───────────────────────────────── */
-const serviceCards = [
+/* ─── STRATEGIC CAPABILITY CARDS ───────────────────── */
+const capabilityCards = [
     {
-        icon: <LayoutTemplate className="w-8 h-8" />,
-        title: 'Landing Pages de Alto Rendimiento',
-        front: 'Convierte visitantes en clientes 24/7.',
-        back: 'Optimización, velocidad y copy persuasivo.',
+        icon: <Layers className="w-8 h-8" />,
+        title: 'Arquitectura de Conversión',
+        front: 'Estructuras digitales diseñadas para convertir, no solo para verse bien.',
+        back: 'Jerarquía visual, copy de decisión, velocidad técnica y pruebas A/B integradas desde el diseño.',
     },
     {
-        icon: <Building2 className="w-8 h-8" />,
-        title: 'Sitios Web Corporativos',
-        front: 'Presencia digital sólida y profesional.',
-        back: 'Escalables, administrables y optimizados para SEO.',
-    },
-    {
-        icon: <Code2 className="w-8 h-8" />,
-        title: 'Sistemas Web a la Medida',
-        front: 'Automatiza procesos y reduce errores.',
-        back: 'Software personalizado con seguridad avanzada.',
+        icon: <Network className="w-8 h-8" />,
+        title: 'Infraestructura Escalable',
+        front: 'Sistemas que crecen con tu negocio sin reconstruirse desde cero.',
+        back: 'Arquitectura modular, APIs desacopladas, bases de datos optimizadas y despliegue en la nube.',
     },
     {
         icon: <Bot className="w-8 h-8" />,
-        title: 'Automatizaciones con IA',
-        front: 'Agentes inteligentes que trabajan por ti.',
-        back: 'Clasifican, analizan y optimizan en automático.',
+        title: 'Automatización con Criterio',
+        front: 'Procesos operativos eliminados o delegados a lógica inteligente.',
+        back: 'Agentes IA, flujos condicionales, triggers de negocio y reducción de tiempo operativo documentada.',
     },
     {
-        icon: <MessageSquare className="w-8 h-8" />,
-        title: 'Chatbots Inteligentes',
-        front: 'Atención inmediata y ventas constantes.',
-        back: 'WhatsApp, web y redes sociales integradas.',
-    },
-    {
-        icon: <ShoppingCart className="w-8 h-8" />,
-        title: 'Tiendas Online (E-commerce)',
-        front: 'Vende sin límites geográficos.',
-        back: 'Pagos integrados, inventario y envíos automatizados.',
+        icon: <Star className="w-8 h-8" />,
+        title: 'Experiencia de Marca Digital',
+        front: 'Identidad digital que posiciona, distingue y retiene.',
+        back: 'Diseño de sistemas visuales, narrativa de marca y experiencias de usuario orientadas a autoridad.',
     },
     {
         icon: <Plug className="w-8 h-8" />,
-        title: 'Integraciones y Automatización Empresarial',
-        front: 'Conecta tus herramientas y elimina tareas manuales.',
-        back: 'Todo sincronizado en tiempo real.',
+        title: 'Integración Operativa',
+        front: 'Tus herramientas trabajando juntas como un único sistema.',
+        back: 'Conexión entre CRM, ERP, pasarelas de pago, logística y plataformas de comunicación.',
+    },
+    {
+        icon: <ShoppingCart className="w-8 h-8" />,
+        title: 'Comercio Digital Optimizado',
+        front: 'Canales de venta construidos para escalar volumen y retener clientes.',
+        back: 'Catálogo dinámico, checkout optimizado, pagos internacionales y analítica de comportamiento.',
+    },
+    {
+        icon: <Shield className="w-8 h-8" />,
+        title: 'Seguridad y Control de Acceso',
+        front: 'Infraestructura robusta con roles, trazabilidad y protección real.',
+        back: 'Autenticación avanzada, gestión de permisos, auditoría de operaciones y cumplimiento de datos.',
     },
 ];
 
-const visionPillars = [
-    { icon: <Sparkles className="w-8 h-8" />, label: 'Branding' },
-    { icon: <Cpu className="w-8 h-8" />, label: 'Automatización' },
-    { icon: <Bot className="w-8 h-8" />, label: 'IA' },
-    { icon: <TrendingUp className="w-8 h-8" />, label: 'Ventas' },
+/* ─── METHOD PILLARS ─────────────────────────────────── */
+const methodPillars = [
+    {
+        icon: <Search className="w-8 h-8" />,
+        step: '01',
+        label: 'Diagnóstico Estratégico',
+        desc: 'Identificamos las brechas entre tu operación actual y el potencial digital de tu negocio.',
+    },
+    {
+        icon: <Layers className="w-8 h-8" />,
+        step: '02',
+        label: 'Arquitectura Digital',
+        desc: 'Diseñamos la estructura técnica que soporte el crecimiento sin deuda operativa.',
+    },
+    {
+        icon: <Cpu className="w-8 h-8" />,
+        step: '03',
+        label: 'Ejecución Inteligente',
+        desc: 'Implementamos con precisión, integramos herramientas y automatizamos flujos clave.',
+    },
+    {
+        icon: <RefreshCw className="w-8 h-8" />,
+        step: '04',
+        label: 'Optimización Continua',
+        desc: 'Medimos resultados reales e iteramos para maximizar el retorno de cada componente.',
+    },
 ];
 
-/* ─── ANIMATION VARIANTS ────────────────────────────── */
+/* ─── ANIMATION VARIANTS ─────────────────────────────── */
 const slideVariants = {
     enter: (dir) => ({ x: dir > 0 ? '100%' : '-100%', opacity: 0 }),
     center: { x: 0, opacity: 1, transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] } },
@@ -174,7 +208,7 @@ const fadeUp = {
     visible: (i = 0) => ({ y: 0, opacity: 1, transition: { delay: i * 0.12, duration: 0.7, ease: 'easeOut' } }),
 };
 
-/* ─── WARM NEON PALETTE ─────────────────────────────── */
+/* ─── WARM NEON PALETTE ──────────────────────────────── */
 const warmPalette = [
     ['#ff6b35', '#f7931e'],
     ['#ff4d6d', '#ff9a3c'],
@@ -183,7 +217,7 @@ const warmPalette = [
     ['#ffd93d', '#ff4d6d'],
 ];
 
-/* ─── FLIP CARD COMPONENT ───────────────────────────── */
+/* ─── FLIP CARD ──────────────────────────────────────── */
 const FlipCard = ({ card, index }) => {
     const [flipped, setFlipped] = useState(false);
     const [glowPhase, setGlowPhase] = useState(index % warmPalette.length);
@@ -235,7 +269,7 @@ const FlipCard = ({ card, index }) => {
                         <p className="text-xs font-medium" style={{ color: c1, transition: 'color 1.8s ease' }}>{card.front}</p>
                     </div>
                     <div className="absolute bottom-4 right-5 text-[10px] font-bold uppercase tracking-widest opacity-40" style={{ color: c1 }}>
-                        ✦ ver más
+                        ✦ detalle
                     </div>
                 </div>
 
@@ -280,7 +314,7 @@ const About = () => {
 
     useEffect(() => {
         if (paused) return;
-        const t = setInterval(next, 8000); // slower: 8 seconds
+        const t = setInterval(next, 8000);
         return () => clearInterval(t);
     }, [paused, next]);
 
@@ -294,7 +328,7 @@ const About = () => {
             <section className="relative py-20 px-6 overflow-hidden">
                 <div className="container mx-auto relative z-10 text-center">
                     <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, ease: 'easeOut' }}>
-                        <span className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Engineered for Growth</span>
+                        <span className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block">Strategic Technology Partner</span>
                         <h1 className="text-6xl md:text-9xl font-black mb-8 leading-[0.8] tracking-tighter uppercase italic">
                             Digital <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-highlight to-accent">Power</span>
@@ -308,20 +342,30 @@ const About = () => {
                 <div className="container mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                         <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                            <h2 className="text-4xl md:text-6xl font-black mb-8 uppercase tracking-tighter">
-                                ¿Quiénes <br /><span className="text-highlight">Somos?</span>
+                            <span className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-6 block">¿Quiénes Somos?</span>
+                            <h2 className="text-4xl md:text-5xl font-black mb-8 uppercase tracking-tighter leading-tight">
+                                No somos una agencia.<br />
+                                <span className="text-highlight">Somos tu arquitecto digital.</span>
                             </h2>
-                            <p className="text-xl text-softWhite/70 leading-relaxed mb-8">
-                                <strong className="text-white">Groob Code Technology</strong> es una firma de desarrollo tecnológico especializada en soluciones digitales estratégicas para empresas que buscan crecer, automatizar y posicionarse con autoridad en el entorno digital.
+                            <p className="text-lg text-softWhite/70 leading-relaxed mb-6">
+                                <strong className="text-white">Groob Code Technology</strong> es una consultora tecnológica boutique. Trabajamos con empresas que buscan estructurar, automatizar o escalar sus operaciones mediante infraestructura digital de alto rendimiento.
                             </p>
-                            <p className="text-lg text-softWhite/50 mb-12">
-                                No solo construimos sitios web. Diseñamos sistemas, procesos y experiencias que convierten tecnología en ventaja competitiva.
+                            <p className="text-base text-softWhite/50 leading-relaxed mb-10">
+                                Nuestro enfoque no es entregar proyectos. Es diseñar sistemas que produzcan resultados medibles: más conversión, menos carga operativa, mayor control y crecimiento sostenido.
                             </p>
                             <div className="grid grid-cols-2 gap-4">
-                                {['Escalabilidad', 'Rendimiento', 'Seguridad', 'Automatización'].map((item) => (
-                                    <div key={item} className="flex items-center gap-2 p-4 bg-white/5 rounded-xl border border-white/10">
-                                        <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                                        <span className="text-xs font-bold uppercase tracking-widest">{item}</span>
+                                {[
+                                    { label: 'Visión Estratégica', sub: 'Cada decisión técnica tiene un propósito de negocio.' },
+                                    { label: 'Arquitectura Sólida', sub: 'Construido para escalar, no para reemplazar.' },
+                                    { label: 'Resultados Medibles', sub: 'Métricas reales que justifican la inversión.' },
+                                    { label: 'Socio a Largo Plazo', sub: 'No un proveedor. Un aliado estratégico.' },
+                                ].map((item) => (
+                                    <div key={item.label} className="p-4 bg-white/5 rounded-xl border border-white/10">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <div className="w-2 h-2 rounded-full bg-accent animate-pulse flex-shrink-0" />
+                                            <span className="text-xs font-black uppercase tracking-widest text-white">{item.label}</span>
+                                        </div>
+                                        <p className="text-[11px] text-softWhite/40 pl-4">{item.sub}</p>
                                     </div>
                                 ))}
                             </div>
@@ -347,7 +391,6 @@ const About = () => {
                 onMouseEnter={() => setPaused(true)}
                 onMouseLeave={() => setPaused(false)}
             >
-                {/* Background */}
                 <AnimatePresence mode="wait" custom={direction}>
                     <motion.div
                         key={`bg-${current}`}
@@ -373,13 +416,11 @@ const About = () => {
                     </motion.div>
                 </AnimatePresence>
 
-                {/* Counter */}
                 <div className="absolute top-8 right-8 z-20 font-black text-sm tracking-widest text-white/30">
                     <span className="text-white/70">{String(current + 1).padStart(2, '0')}</span>
                     <span> / {String(slides.length).padStart(2, '0')}</span>
                 </div>
 
-                {/* Content */}
                 <AnimatePresence mode="wait" custom={direction}>
                     <motion.div
                         key={`content-${current}`}
@@ -401,16 +442,15 @@ const About = () => {
                                     className="font-black uppercase tracking-tighter italic leading-[0.9] mb-8"
                                     style={{ fontSize: 'clamp(3rem, 8vw, 7rem)' }}>
                                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/60">
-                                        No solo <br />desarrollamos.
+                                        {slide.headline}
                                     </span>
                                 </motion.h2>
                                 <motion.p variants={fadeUp} custom={2} initial="hidden" animate="visible"
                                     className="text-xl md:text-2xl text-softWhite/60 leading-relaxed max-w-2xl mx-auto font-light">
-                                    Construimos ecosistemas digitales que{' '}
                                     <span className="text-transparent bg-clip-text font-semibold"
                                         style={{ backgroundImage: `linear-gradient(to right, ${slide.accentFrom}, ${slide.accentTo})` }}>
-                                        venden, automatizan y escalan
-                                    </span>{' '}negocios.
+                                        {slide.subtitle}
+                                    </span>
                                 </motion.p>
                             </div>
                         ) : (
@@ -423,7 +463,7 @@ const About = () => {
                                 <motion.div variants={fadeUp} custom={1} initial="hidden" animate="visible"
                                     className="text-xs font-black tracking-[0.5em] uppercase mb-4"
                                     style={{ color: slide.accentFrom }}>
-                                    Servicio {slide.tag}
+                                    Capacidad {slide.tag}
                                 </motion.div>
                                 <motion.h2 variants={fadeUp} custom={2} initial="hidden" animate="visible"
                                     className="font-black uppercase tracking-tighter italic leading-tight mb-5"
@@ -446,7 +486,6 @@ const About = () => {
                     </motion.div>
                 </AnimatePresence>
 
-                {/* Arrows */}
                 <motion.button whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} onClick={prev}
                     className="absolute left-5 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/10 bg-white/5 hover:bg-white/10 backdrop-blur-sm flex items-center justify-center transition-colors">
                     <ChevronLeft className="w-5 h-5" />
@@ -456,7 +495,6 @@ const About = () => {
                     <ChevronRight className="w-5 h-5" />
                 </motion.button>
 
-                {/* Dots */}
                 <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
                     {slides.map((_, i) => (
                         <button key={i} onClick={() => goTo(i, i > current ? 1 : -1)}
@@ -465,7 +503,6 @@ const About = () => {
                     ))}
                 </div>
 
-                {/* Progress bar */}
                 <div className="absolute bottom-0 left-0 right-0 h-[2px] bg-white/5 z-20">
                     <motion.div
                         key={`progress-${current}`}
@@ -478,54 +515,73 @@ const About = () => {
                 </div>
             </section>
 
-            {/* 4 ─── TECNOLOGÍA CON VISIÓN DE NEGOCIO ──── */}
+            {/* 4 ─── MÉTODO GROOB CODE (formerly "Tecnología con Visión") ── */}
             <section className="py-28 px-6 bg-white/[0.015] border-t border-white/5">
-                <div className="container mx-auto max-w-4xl text-center">
-                    <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                        className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block">
-                        Nuestra filosofía
-                    </motion.span>
-                    <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                        className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic mb-6">
-                        Tecnología con{' '}
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight">visión de negocio</span>
-                    </motion.h2>
-                    <motion.p initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-                        className="text-lg text-softWhite/50 leading-relaxed mb-16 max-w-2xl mx-auto">
-                        Branding, automatización, IA y ventas trabajando como un solo sistema.
-                    </motion.p>
-                    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }}
-                        variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.1 } } }}
-                        className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        {visionPillars.map((p, i) => (
+                <div className="container mx-auto max-w-5xl">
+                    <div className="text-center mb-16">
+                        <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                            className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block">
+                            Nuestro Método
+                        </motion.span>
+                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                            className="text-4xl md:text-6xl font-black uppercase tracking-tighter italic mb-4">
+                            El{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight">Framework</span>
+                            {' '}Groob
+                        </motion.h2>
+                        <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+                            className="text-softWhite/40 text-base max-w-xl mx-auto">
+                            Un proceso estructurado que convierte el potencial digital en ventaja competitiva real.
+                        </motion.p>
+                    </div>
+
+                    <motion.div
+                        initial="hidden" whileInView="visible" viewport={{ once: true }}
+                        variants={{ hidden: { opacity: 0 }, visible: { opacity: 1, transition: { staggerChildren: 0.12 } } }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                    >
+                        {methodPillars.map((p, i) => (
                             <motion.div key={i}
-                                variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-                                whileHover={{ y: -6, scale: 1.03 }}
-                                className="group flex flex-col items-center gap-4 p-8 rounded-3xl border border-white/5 bg-white/[0.03] hover:border-accent/30 hover:bg-white/[0.06] transition-all cursor-default">
-                                <div className="p-4 rounded-2xl bg-accent/10 text-accent group-hover:scale-110 transition-transform">{p.icon}</div>
-                                <span className="text-sm font-bold uppercase tracking-widest text-softWhite/80">{p.label}</span>
+                                variants={{ hidden: { y: 24, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
+                                whileHover={{ y: -6, scale: 1.02 }}
+                                className="group relative p-8 rounded-3xl border border-white/5 bg-white/[0.03] hover:border-accent/30 hover:bg-white/[0.06] transition-all cursor-default overflow-hidden"
+                            >
+                                {/* Step number watermark */}
+                                <div className="absolute -top-2 -right-2 text-[80px] font-black text-white/[0.03] leading-none select-none pointer-events-none">
+                                    {p.step}
+                                </div>
+                                <div className="text-xs font-black tracking-[0.4em] uppercase text-accent/60 mb-4">{p.step}</div>
+                                <div className="p-3 rounded-2xl bg-accent/10 text-accent mb-5 inline-flex group-hover:scale-110 transition-transform">
+                                    {p.icon}
+                                </div>
+                                <h4 className="font-black uppercase tracking-tight text-sm text-white mb-3">{p.label}</h4>
+                                <p className="text-xs text-softWhite/40 leading-relaxed">{p.desc}</p>
                             </motion.div>
                         ))}
                     </motion.div>
                 </div>
             </section>
 
-            {/* 5 ─── FLIP CARDS DE SERVICIOS ───────────── */}
+            {/* 5 ─── CAPACIDADES ESTRATÉGICAS (Flip Cards) ─ */}
             <section className="py-32 px-6">
                 <div className="container mx-auto">
                     <div className="text-center mb-16">
+                        <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                            className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block">
+                            Capacidades
+                        </motion.span>
                         <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                             className="text-4xl md:text-7xl font-black mb-6 uppercase tracking-tight italic">
                             Lo que{' '}
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6b35] to-[#ffd93d]">Hacemos</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ff6b35] to-[#ffd93d]">construimos</span>
                         </motion.h2>
                         <motion.p initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
                             className="text-softWhite/40 text-sm uppercase tracking-[0.3em] font-bold">
-                            Toca una tarjeta para descubrir más
+                            Toca una tarjeta para ver el detalle técnico
                         </motion.p>
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-                        {serviceCards.map((card, i) => <FlipCard key={i} card={card} index={i} />)}
+                        {capabilityCards.map((card, i) => <FlipCard key={i} card={card} index={i} />)}
                     </div>
                 </div>
             </section>
@@ -533,16 +589,27 @@ const About = () => {
             {/* 6 ─── PROPÓSITO & VISIÓN ─────────────────── */}
             <section className="py-24 px-6 bg-white/[0.02] border-t border-white/5">
                 <div className="container mx-auto">
+                    <div className="text-center mb-14">
+                        <motion.span initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                            className="text-accent font-bold tracking-[0.4em] uppercase text-xs mb-4 block">
+                            Propósito & Visión
+                        </motion.span>
+                        <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                            className="text-4xl md:text-5xl font-black uppercase tracking-tighter italic">
+                            Construido para{' '}
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent to-highlight">trascender</span>
+                        </motion.h2>
+                    </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                         <motion.div whileHover={{ y: -10 }} className="p-12 bg-darkCharcoal/60 rounded-[40px] border border-white/5 relative overflow-hidden group">
                             <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/10 rounded-full blur-[60px] group-hover:bg-accent/20 transition-all" />
                             <Target className="w-12 h-12 text-accent mb-8" />
                             <h3 className="text-3xl font-black mb-6 uppercase tracking-tighter italic">Nuestro Propósito</h3>
                             <p className="text-softWhite/70 text-lg leading-relaxed">
-                                Impulsar empresas latinoamericanas a competir a nivel global mediante soluciones digitales sólidas, escalables y estratégicamente diseñadas.
+                                Convertirnos en el socio tecnológico estratégico que las empresas latinoamericanas necesitan para competir en un mercado global: con infraestructura sólida, decisiones basadas en datos y sistemas que escalan junto al negocio.
                             </p>
                             <div className="mt-8 pt-8 border-t border-white/5 font-bold text-accent uppercase tracking-[0.2em] text-xs">
-                                La tecnología multiplica resultados.
+                                Tecnología que multiplica valor.
                             </div>
                         </motion.div>
 
@@ -551,7 +618,7 @@ const About = () => {
                             <Rocket className="w-12 h-12 text-highlight mb-8" />
                             <h3 className="text-3xl font-black mb-6 uppercase tracking-tighter italic">Visión a 5 Años</h3>
                             <p className="text-softWhite/70 text-lg leading-relaxed">
-                                Evolucionar de agencia a un <span className="text-white font-bold">ecosistema tecnológico</span> referente en LATAM, con soluciones SaaS propias y un portafolio de impacto internacional.
+                                Ser la consultora tecnológica de referencia en LATAM para empresas en expansión, con soluciones SaaS propias, presencia internacional y un modelo de crecimiento compartido con nuestros clientes.
                             </p>
                             <div className="mt-8 pt-8 border-t border-white/5 font-bold text-highlight uppercase tracking-[0.2em] text-xs">
                                 BEYOND THE FUTURE.
